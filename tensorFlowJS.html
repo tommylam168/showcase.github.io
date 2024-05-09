@@ -1,0 +1,121 @@
+<script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis'></script>
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Car</h2>
+<h3>Training data:</h3>
+<div id='plot'></div>
+<h3>Loss function:</h3>
+<div id='loss_fn'></div>
+<hr>
+<h2>House</h2>
+<h3>Training data:</h3>
+<div id='plot1'></div>
+<h3>Loss function:</h3>
+<div id='plot2'></div>
+</body>
+</html>
+
+<script>
+function extractData(obj){return {x:obj.Horsepower,y:obj.Miles_per_Gallon}}
+function removeErrors(obj){return obj.x!=null&&obj.y!= null}
+function tfPlot(data,plot){
+	tfvis.render.scatterplot(plot,
+	{values:data,series:['Original','Predicted']},
+	{xLabel:'Horsepower',yLabel:'Miles per Gallon'})
+	}
+async function trainModel(model,input,label,plot){
+	const batchSize=25;
+	const epochs=100;
+	const callbacks=tfvis.show.fitCallbacks(plot,['loss'],{callbacks:['onEpochEnd']});
+	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks});
+	}
+
+async function runTF(){
+	//const jsonData=await fetch('https://storage.googleapis.com/tfjs-tutorials/carsData.json');
+	const jsonData=await fetch('tfjs/carsData.json');
+	let data=await jsonData.json();
+	data=data.map(extractData).filter(removeErrors);
+	const plot1=document.getElementById('plot');
+	const plot2=document.getElementById('loss_fn');
+	tfPlot(data,plot1);
+	tf.util.shuffle(data);
+	const input=data.map(obj=>obj.x);
+	const label=data.map(obj=>obj.y);
+	const inputT=tf.tensor2d(input,[input.length,1]);
+	const labelT=tf.tensor2d(label,[label.length,1]);
+	const inputMin=inputT.min();  
+	const inputMax=inputT.max();
+	const labelMin=labelT.min();
+	const labelMax=labelT.max();
+	const nmInput=inputT.sub(inputMin).div(inputMax.sub(inputMin));
+	const nmLabel=labelT.sub(labelMin).div(labelMax.sub(labelMin));
+	const model=tf.sequential(); 
+	model.add(tf.layers.dense({inputShape:[1],units:1,useBias:true}));
+	model.add(tf.layers.dense({units:1,useBias:true}));
+	model.compile({loss:'meanSquaredError',optimizer:'sgd'});
+	await trainModel(model,nmInput,nmLabel,plot2);
+	let unX=tf.linspace(0,1,100);
+	let unY=model.predict(unX.reshape([100,1]));
+	const unNormunX=unX.mul(inputMax.sub(inputMin)).add(inputMin);
+	const unNormunY=unY.mul(labelMax.sub(labelMin)).add(labelMin);
+	unX=unNormunX.dataSync();
+	unY=unNormunY.dataSync();
+	const pred=Array.from(unX).map((val,i)=>{return{x:val,y:unY[i]}});
+	tfPlot([data,pred],plot1);
+	}
+
+runTF();
+</script>
+<script>
+function extractData2(obj){return {x:obj.AvgAreaNumberofRooms,y:obj.Price}}
+function removeErrors2(obj){return obj.x!=null&&obj.y!= null}
+function tfPlot2(data,plot){
+	tfvis.render.scatterplot(plot,
+	{values:data,series:['Original','Predicted']},
+	{xLabel:'Rooms',yLabel:'Price'})
+	}
+async function trainModel2(model,input,label,plot){
+	const batchSize=25;
+	const epochs=100;
+	const callbacks=tfvis.show.fitCallbacks(plot,['loss'],{callbacks:['onEpochEnd']});
+	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks});
+	}
+
+async function runTF2(){
+	//const jsonData=await fetch('https://raw.githubusercontent.com/meetnandu05/ml1/master/house.json');
+	const jsonData=await fetch('tfjs/house.json');
+	let data=await jsonData.json();
+	data=data.map(extractData2).filter(removeErrors2);
+	const plot1=document.getElementById('plot1');
+	const plot2=document.getElementById('plot2');
+	tfPlot2(data,plot1);
+	tf.util.shuffle(data);
+	const input=data.map(obj=>obj.x);
+	const label=data.map(obj=>obj.y);
+	const inputT=tf.tensor2d(input,[input.length,1]);
+	const labelT=tf.tensor2d(label,[label.length,1]);
+	const inputMin=inputT.min();  
+	const inputMax=inputT.max();
+	const labelMin=labelT.min();
+	const labelMax=labelT.max();
+	const normInput=inputT.sub(inputMin).div(inputMax.sub(inputMin));
+	const normLabel=labelT.sub(labelMin).div(labelMax.sub(labelMin));
+	const model=tf.sequential(); 
+	model.add(tf.layers.dense({inputShape:[1],units:1,useBias:true}));
+	model.add(tf.layers.dense({units:1,useBias:true}));
+	model.compile({loss:'meanSquaredError',optimizer:'sgd'});
+	await trainModel2(model,normInput,normLabel,plot2);
+	let unX=tf.linspace(0,1,100);      
+	let unY=model.predict(unX.reshape([100,1]));      
+	const unNormunX=unX.mul(inputMax.sub(inputMin)).add(inputMin);
+	const unNormunY=unY.mul(labelMax.sub(labelMin)).add(labelMin);
+	unX=unNormunX.dataSync();
+	unY=unNormunY.dataSync();
+	const pred=Array.from(unX).map((val,i)=>{return{x:val,y:unY[i]}});
+	tfPlot2([data,pred],plot1);
+	}
+
+runTF2();
+</script>
