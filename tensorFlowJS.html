@@ -49,13 +49,13 @@ async function runTF(){
 	const inputMax=inputT.max();
 	const labelMin=labelT.min();
 	const labelMax=labelT.max();
-	const nmInput=inputT.sub(inputMin).div(inputMax.sub(inputMin));
-	const nmLabel=labelT.sub(labelMin).div(labelMax.sub(labelMin));
+	const normInput=inputT.sub(inputMin).div(inputMax.sub(inputMin));
+	const normLabel=labelT.sub(labelMin).div(labelMax.sub(labelMin));
 	const model=tf.sequential(); 
 	model.add(tf.layers.dense({inputShape:[1],units:1,useBias:true}));
 	model.add(tf.layers.dense({units:1,useBias:true}));
 	model.compile({loss:'meanSquaredError',optimizer:'sgd'});
-	await trainModel(model,nmInput,nmLabel,plot2);
+	await trainModel(model,normmInput,normmLabel,plot2);
 	let unX=tf.linspace(0,1,100);
 	let unY=model.predict(unX.reshape([100,1]));
 	const unNormunX=unX.mul(inputMax.sub(inputMin)).add(inputMin);
