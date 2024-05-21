@@ -75,6 +75,7 @@ runTF()
 function extractData2(obj){return {x:obj.AvgAreaNumberofRooms,y:obj.Price}}
 
 function removeErrors2(obj){return obj.x!=null&&obj.y!= null}
+
 function tfPlot2(data,plot){
 	tfvis.render.scatterplot(plot,
 	{values:data,series:['Original','Predicted']},
