@@ -19,17 +19,20 @@
 
 <script>
 function extractData(obj){return {x:obj.Horsepower,y:obj.Miles_per_Gallon}}
+
 function removeErrors(obj){return obj.x!=null&&obj.y!= null}
+
 function tfPlot(data,plot){
 	tfvis.render.scatterplot(plot,
 	{values:data,series:['Original','Predicted']},
 	{xLabel:'Horsepower',yLabel:'Miles per Gallon'})
 	}
+
 async function trainModel(model,input,label,plot){
 	const batchSize=25;
 	const epochs=100;
 	const callbacks=tfvis.show.fitCallbacks(plot,['loss'],{callbacks:['onEpochEnd']});
-	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks});
+	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks})
 	}
 
 async function runTF(){
@@ -63,24 +66,26 @@ async function runTF(){
 	unX=unNormunX.dataSync();
 	unY=unNormunY.dataSync();
 	const pred=Array.from(unX).map((val,i)=>{return{x:val,y:unY[i]}});
-	tfPlot([data,pred],plot1);
+	tfPlot([data,pred],plot1)
 	}
 
-runTF();
+runTF()
 </script>
 <script>
 function extractData2(obj){return {x:obj.AvgAreaNumberofRooms,y:obj.Price}}
+
 function removeErrors2(obj){return obj.x!=null&&obj.y!= null}
 function tfPlot2(data,plot){
 	tfvis.render.scatterplot(plot,
 	{values:data,series:['Original','Predicted']},
 	{xLabel:'Rooms',yLabel:'Price'})
 	}
+
 async function trainModel2(model,input,label,plot){
 	const batchSize=25;
 	const epochs=100;
 	const callbacks=tfvis.show.fitCallbacks(plot,['loss'],{callbacks:['onEpochEnd']});
-	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks});
+	return await model.fit(input,label,{batchSize,epochs,shuffle:true,callbacks:callbacks})
 	}
 
 async function runTF2(){
@@ -114,8 +119,8 @@ async function runTF2(){
 	unX=unNormunX.dataSync();
 	unY=unNormunY.dataSync();
 	const pred=Array.from(unX).map((val,i)=>{return{x:val,y:unY[i]}});
-	tfPlot2([data,pred],plot1);
+	tfPlot2([data,pred],plot1)
 	}
 
-runTF2();
+runTF2()
 </script>
