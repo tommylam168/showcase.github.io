@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Geolocation</h2>
+<button onclick='getLocation()'>Try It</button>
+<p id='location'></p>
+</body>
+</html>
+<script>
+const x=document.getElementById('location');
+
+function getLocation(){
+	if(navigator.geolocation){
+		navigator.geolocation.watchPosition(showPosition)
+	}else{x.innerHTML='Geolocation is not supported.'}
+
+function showPosition(position){x.innerHTML='Latitude:'+position.coords.latitude+'<br>Longitude:'+position.coords.longitude}
+</script>
