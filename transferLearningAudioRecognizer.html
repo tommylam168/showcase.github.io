@@ -46,7 +46,7 @@ function collect(label){
 	recognizer.listen(async ({spectrogram:{frameSize,data}})=>{
 		let vals=normalize(data.subarray(-frameSize*NUM_FRAMES));
 		examples.push({vals,label});
-		document.querySelector('#console').textContent=`${examples.length} examples collected`
+		document.querySelector('#console').textContent=`${examples.length} data collected.`
 		},{overlapFactor:0.999,includeSpectrogram:true,invokeCallbackOnNoiseAndUnknown:true})
 		}
 
@@ -77,7 +77,7 @@ async function train(){
 	await model.fit(xs,ys,{
 		batchSize:16,
 		epochs:10,
-		callbacks:{onEpochEnd:(epoch,logs)=>document.querySelector('#console').textContent=`Accuracy:${(logs.acc*100).toFixed(1)}% Epoch:${epoch + 1}`}
+		callbacks:{onEpochEnd:(epoch,logs)=>document.querySelector('#console').textContent=`Epoch ${epoch+1}: Accuracy ${(logs.acc*100).toFixed(1)}%`}
 		});
 	tf.dispose([xs,ys]);
 	toggleButtons(true)
