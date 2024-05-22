@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Web Worker API</h2>
+<p>Count: <output id='result'></output></p>
+<button onclick='startWorker()'>Start Worker</button> 
+<button onclick='stopWorker()'>Stop Worker</button>
+<script>
+let w;
+
+function startWorker(){
+	if(typeof(w)=='undefined')w=new Worker('webWorker.js')
+	w.onmessage=function(event){document.getElementById('result').innerHTML=event.data}
+	}
+
+function stopWorker(){ 
+	w.terminate();
+	w=undefined
+	}
+</script>
+</body>
+</html>
