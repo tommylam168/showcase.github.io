@@ -1,0 +1,402 @@
+<!doctype html>
+<head>
+<title>MNIST CNN Transfer Learning</title>
+<script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis/dist/tfjs-vis.umd.min.js'></script>
+</head>
+<style>
+.container{width:calc(100vw - 600px)}
+.input-div{padding:5px}
+.predict-div{padding:5px;padding-top:20px}
+.predict-table{table-layout:fixed;border-collapse:collapse;border:1px solid black}
+.predict-table td{padding:5px}
+td {padding-left:5px;padding-right:5px;padding-bottom:5px}
+#predict-header{font-weight:bold}
+.output-div{padding:5px;padding-top:20px;font-weight:bold}
+#trainProg{margin-top:20px;display:inline-block}
+#image-input{position:relative;width:100%;margin-top:10px;min-width:800px}
+</style>
+<body>
+<div class='container'>
+<h1>MNIST CNN Transfer Learning</h1>
+<section class='section-head'><p>Status</p><span id='status'></span></section>
+<section>
+<p>Load Model</p>
+<div class='create-model'>
+<button id='load-pretrained-remote' style='display:none'>Load hosted pretrained model</button>
+<button id='load-pretrained-local' style='display:none'>Load local pretrained model</button>
+</div>
+<p>Retrain Model</p>
+<p>When retraining the model 3 different approaches are available.
+<ul>
+<li><strong>Freeze feature layers:</strong> Freeze first 7 layers and train last 5 layers.</li>
+<li><strong>Don't freeze feature layers:</strong> Longer model convergence time and more larger shifts in weights.</li>
+<li><strong>Reinitialize weights:</strong> Reset all the weights, effectively training the model from scratch.</li>
+</ul>
+</p>
+<div class='retrain-div'>
+<span>Training mode</span>
+<select id='training-mode' class='form-control'>
+<option value='freeze-feature-layers'>Freeze feature layers</option>
+<option value='no-freezing'>Don't freeze feature layers</option>
+<option value='reinitialize-weights'>Reinitialize weights</option>
+</select>
+<br><br>
+<label>Epochs</label>
+<input class='input' id='epochs' value='10' style='width:3em'>
+<br><br>
+<button class='btn btn-primary' id='retrain' disabled='true'><span>Retrain</span></button>
+<progress id='trainProg' value='0' max='100' style='width:38%'></progress>
+</div>
+</section>
+<section>
+<p>Test Model</p>
+<select id='test-image-select' class='form-control' disabled='true'>
+<option class='head'>Select test example</option>
+<option value='5_1'>5_1</option>
+<option value='5_2'>5_2</option>
+<option value='5_3'>5_3</option>
+<option value='5_4'>5_4</option>
+<option value='5_5'>5_5</option>
+<option value='5_6'>5_6</option>
+<option value='5_7'>5_7</option>
+<option value='5_8'>5_8</option>
+<option value='5_9'>5_9</option>
+<option value='5_10'>5_10</option>
+<option value='6_1'>6_1</option>
+<option value='6_2'>6_2</option>
+<option value='6_3'>6_3</option>
+<option value='6_4'>6_4</option>
+<option value='6_5'>6_5</option>
+<option value='6_6'>6_6</option>
+<option value='6_7'>6_7</option>
+<option value='6_8'>6_8</option>
+<option value='6_9'>6_9</option>
+<option value='6_10'>6_10</option>
+<option value='7_1'>7_1</option>
+<option value='7_2'>7_2</option>
+<option value='7_3'>7_3</option>
+<option value='7_4'>7_4</option>
+<option value='7_5'>7_5</option>
+<option value='7_6'>7_6</option>
+<option value='7_7'>7_7</option>
+<option value='7_8'>7_8</option>
+<option value='7_9'>7_9</option>
+<option value='7_10'>7_10</option>
+<option value='8_1'>8_1</option>
+<option value='8_2'>8_2</option>
+<option value='8_3'>8_3</option>
+<option value='8_4'>8_4</option>
+<option value='8_5'>8_5</option>
+<option value='8_6'>8_6</option>
+<option value='8_7'>8_7</option>
+<option value='8_8'>8_8</option>
+<option value='8_9'>8_9</option>
+<option value='8_10'>8_10</option>
+<option value='9_1'>9_1</option>
+<option value='9_2'>9_2</option>
+<option value='9_3'>9_3</option>
+<option value='9_4'>9_4</option>
+<option value='9_5'>9_5</option>
+<option value='9_6'>9_6</option>
+<option value='9_7'>9_7</option>
+<option value='9_8'>9_8</option>
+<option value='9_9'>9_9</option>
+<option value='9_10'>9_10</option>
+</select>
+<br><br>
+<textarea id='image-input' rows='28'></textarea>
+<p>Model Output</p>
+<div class='predict-div'>
+<table class='predict-table'>
+<tr id='predict-header'></tr>
+<tr id='predict-values'></tr>
+</table>
+</div>
+<div class='output-div'><span class='output-label'>Output class:</span><span id='winner'></span></div>
+</section>
+</div>
+</body>
+<script>
+const HOSTED_URLS={
+	model:'https://storage.googleapis.com/tfjs-models/tfjs/mnist_transfer_cnn_v1/model.json',
+	train:'https://storage.googleapis.com/tfjs-models/tfjs/mnist_transfer_cnn_v1/gte5.train.json',
+	test:'https://storage.googleapis.com/tfjs-models/tfjs/mnist_transfer_cnn_v1/gte5.test.json'
+	};
+const LOCAL_URLS={
+	model:'http://localhost/model.json',
+	train:'http://localhost/gte5.train.json',
+	test:'http://localhost:/gte5.test.json'
+	};
+
+class MnistTransferCNNPredictor{
+	async init(urls){
+		this.urls=urls;
+		this.model=await loader_loadHostedPretrainedModel(urls.model);
+    this.model.summary();
+	tfvis.show.modelSummary({name:'Model Summary',tab:'Model Info'},this.model);
+    this.imageSize=this.model.layers[0].batchInputShape[1];
+    this.numClasses=5;
+    await this.loadRetrainData();
+    this.prepTestExamples();
+    return this
+	}
+	
+	async loadRetrainData(){
+	ui_status('Loading data...');
+	this.gte5TrainData=await loader_loadHostedData(this.urls.train,this.numClasses);
+	this.gte5TestData=await loader_loadHostedData(this.urls.test,this.numClasses);
+	ui_status('Loading data done.')
+	}
+
+	prepTestExamples(){
+		const testExamples={};
+		const digitCounts={5:0,6:0,7:0,8:0,9:0};
+		const examplesPerDigit=10;
+		for(let i=this.gte5TestData.data.length-1;i>=0;--i){
+			const datum=this.gte5TestData.data[i];
+			const digit=datum.y+5;
+			if(digitCounts[digit]>=examplesPerDigit)continue
+			digitCounts[digit]++;
+			const key=String(digit)+'_'+String(digitCounts[digit]);
+			testExamples[key]=[];
+			for(const row of datum.x)testExamples[key]=testExamples[key].concat(row)
+			if(Object.keys(testExamples).length>=5*examplesPerDigit)break
+			}
+		this.testExamples = testExamples;
+		}
+
+	predict(imageText){
+		tf.tidy(()=>{
+			try{
+				const image=util_textToImageArray(imageText,this.imageSize);
+				const predictOut=this.model.predict(image);
+				const winner=predictOut.argMax(1);
+				ui_setPredictResults(predictOut.dataSync(),winner.dataSync()[0]+5)
+			}catch(e){ui_setPredictError(e.message)}
+			})
+			}
+
+	async retrainModel(){
+		ui_status('Please do not click anything while retraining.','blue');
+		const trainingMode=ui_getTrainingMode();
+		if (trainingMode==='freeze-feature-layers'){
+			console.log('Freezing feature layers.');
+			for (let i=0;i<7;++i)this.model.layers[i].trainable=false
+		}else if(trainingMode==='reinitialize-weights'){
+		const returnString=false;
+		this.model=await tf.models.modelFromJSON({
+		modelTopology:this.model.toJSON(null,returnString)})
+		}
+		this.model.compile({loss:'categoricalCrossentropy',optimizer:tf.train.adam(0.01),metrics:['acc']});
+		this.model.summary();
+		const batchSize=128;
+		const epochs=ui_getEpochs();
+		const surfaceInfo={name:trainingMode,tab:'Transfer Learning'};
+		console.log('Processing model.fit()...');
+		await this.model.fit(this.gte5TrainData.x,this.gte5TrainData.y,{
+			batchSize:batchSize,
+			epochs:epochs,
+			validationData:[this.gte5TestData.x,this.gte5TestData.y],
+			callbacks:[
+				ui_getProgressBarCallbackConfig(epochs),
+				tfvis.show.fitCallbacks(surfaceInfo,['val_loss','val_acc'],{zoomToFit:true,zoomToFitAccuracy:true,height:200,callbacks:['onEpochEnd']})
+				]
+				});
+		console.log('model.fit() done.')
+		}
+		}
+
+async function setupMnistTransferCNN(){
+	if(await loader_urlExists(HOSTED_URLS.model)){
+		ui_status('Model available:'+HOSTED_URLS.model);
+		const button=document.getElementById('load-pretrained-remote');
+		button.addEventListener('click',async ()=>{
+			const predictor=await new MnistTransferCNNPredictor().init(HOSTED_URLS);
+			ui_prepUI(x=>predictor.predict(x),()=>predictor.retrainModel(),predictor.testExamples,predictor.imageSize)
+			});
+		button.style.display = 'inline-block'
+		}
+	/*
+	if(await loader_urlExists(LOCAL_URLS.model)){
+		ui_status('Model available:'+LOCAL_URLS.model);
+		const button=document.getElementById('load-pretrained-local');
+		button.addEventListener('click',async ()=>{
+			const predictor=await new MnistTransferCNNPredictor().init(LOCAL_URLS);
+			ui_prepUI(x=>predictor.predict(x),()=>predictor.retrainModel(),predictor.testExamples,predictor.imageSize)
+			});
+		button.style.display = 'inline-block'
+		}
+	*/
+	ui_status('Please load the pretrained model.')
+	}
+
+//loader
+async function loader_urlExists(url){
+	ui_status('Testing connection:'+url);
+	try{
+		const response=await fetch(url,{method:'HEAD'});
+		return response.ok
+	}catch(err){return false}
+	}
+
+async function loader_loadHostedPretrainedModel(url){
+	ui_status('Loading pretrained model from:'+url);
+	try{
+		const model=await tf.loadLayersModel(url);
+		ui_status('Pretrained model loaded.');
+		ui_disableLoadModelButtons();
+		return model
+	}catch(err){
+		console.error(err);
+		ui_status('Pretrained model failed to load.')
+		}
+		}
+
+async function loader_loadHostedData(url,numClasses){
+	ui_status('Loading data from:'+url);
+	try{
+		const raw=await fetch(url);
+		const data=await raw.json();
+		const result=util_convertDataToTensors(data,numClasses);
+		result['data']=data;
+		ui_status('Loading data done.');
+		return result
+	}catch(err){
+		console.error(err);
+		ui_status('Loading data failed.')
+		}
+		}
+
+//ui
+function ui_status(statusText,statusColor){
+	console.log(statusText);
+	document.getElementById('status').textContent=statusText;
+	document.getElementById('status').style.color=statusColor
+	}
+
+function ui_prepUI(predict,retrain,testExamples,imageSize){
+	ui_setPredictFunction(predict,testExamples,imageSize);
+	const imageInput=document.getElementById('image-input');
+	imageInput.value=util_imageVectorToText(testExamples['5_1'],imageSize);
+	predict(imageInput.value);
+	ui_setRetrainFunction(retrain);
+	document.getElementById('retrain').disabled=false;
+	document.getElementById('test-image-select').disabled=false
+	}
+
+function ui_getImageInput(){return document.getElementById('image-input').value}
+
+function ui_getEpochs(){return Number.parseInt(document.getElementById('epochs').value)}
+
+function ui_setPredictFunction(predict,testExamples,imageSize){
+	const imageInput=document.getElementById('image-input');
+	imageInput.addEventListener('keyup',()=>{const result=predict(imageInput.value)});
+	const testImageSelect=document.getElementById('test-image-select');
+	testImageSelect.addEventListener('change',()=>{
+		imageInput.value=util_imageVectorToText(testExamples[testImageSelect.value],imageSize);
+		predict(imageInput.value)
+		})
+		}
+
+function ui_setRetrainFunction(retrain){
+	const retrainButton=document.getElementById('retrain');
+	retrainButton.addEventListener('click',async ()=>{
+		document.getElementById('retrain').disabled=true;
+		await retrain()
+		})
+		}
+
+function ui_getProgressBarCallbackConfig(epochs){
+	const trainProg=document.getElementById('trainProg');
+	let beginMillis;
+	const progressBarCallbackConfig={
+		onTrainBegin:async (logs)=>{
+			beginMillis=tf.util.now();
+			ui_status('Please do not click anything while retraining.','blue');
+			trainProg.value=0
+			},
+		onTrainEnd:async (logs)=>{
+			document.getElementById('retrain').disabled=false;
+			ui_status(`Done retraining ${epochs} epochs (elapsed:${(tf.util.now()-beginMillis).toFixed(1)}ms).`,'black');
+			},
+		onEpochEnd:async (epoch,logs)=>{ui_status(`Please do not click anything while retraining. (Epoch ${epoch+1} of ${epochs})`);
+		trainProg.value=(epoch+1)/epochs*100
+		}
+		}
+	return progressBarCallbackConfig
+	}
+
+function ui_setPredictError(text){
+	const predictHeader=document.getElementById('predict-header');
+	const predictValues=document.getElementById('predict-values');
+	predictHeader.innerHTML='<td>Error:&nbsp;'+text+'</td>';
+	predictValues.innerHTML=''
+	}
+
+function ui_setPredictResults(predictOut,winner){
+	const predictHeader=document.getElementById('predict-header');
+	const predictValues=document.getElementById('predict-values');
+	predictHeader.innerHTML='<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>';
+	let valTds='';
+	for(const predictVal of predictOut){
+		const valTd='<td>'+predictVal.toFixed(6)+'</td>';
+		valTds += valTd;
+		}
+	predictValues.innerHTML=valTds;
+	document.getElementById('winner').textContent=winner
+	}
+
+function ui_disableLoadModelButtons(){
+	document.getElementById('load-pretrained-remote').style.display='none';
+	document.getElementById('load-pretrained-local').style.display='none'
+	}
+
+function ui_getTrainingMode(){return document.getElementById('training-mode').value}
+
+//util
+function util_imageVectorToText(imageVector,imageSize){
+	if(imageVector.length!==imageSize*imageSize)throw new Error('Incorrect image length.Expected '+imageSize*imageSize+'.Got '+imageVector.length+'.')
+	let text='';
+	for(let i=0;i<imageSize*imageSize;++i){
+		if(i%imageSize===0&&i>0)text+='\n'
+		const numString=imageVector[i].toString();
+		text+=' '.repeat(numString.length<4?4-numString.length:0)+numString
+		}
+	return text
+	}
+
+function util_textToImageArray(text,imageSize){
+	const pixels=[];
+	const rows=text.split('\n');
+	for(const row of rows){
+		const tokens=row.split(' ');
+		for(const token of tokens)if(token.length>0)pixels.push(Number.parseInt(token)/255);
+		}
+	return tf.tensor4d(pixels, [1, imageSize, imageSize, 1]);
+	}
+
+function util_indexToOneHot(index,numClasses){
+	const oneHot=[];
+	for(let i=0;i<numClasses;++i)oneHot.push(i===index?1:0);
+	return oneHot
+	}
+
+function util_convertDataToTensors(data,numClasses){
+	const numExamples=data.length;
+	const imgRows=data[0].x.length;
+	const imgCols=data[0].x[0].length;
+	const xs=[];
+	const ys=[];
+	data.map(example=>{
+		xs.push(example.x);
+		ys.push(util_indexToOneHot(example.y,numClasses))
+		});
+	let xsTensor=tf.reshape(tf.tensor3d(xs,[numExamples,imgRows,imgCols]),[numExamples,imgRows,imgCols,1]);
+	xsTensor=tf.mul(tf.scalar(1/255),xsTensor);
+	const ysTensor=tf.tensor2d(ys,[numExamples,numClasses]);
+	return {x:xsTensor,y:ysTensor}
+	}
+
+setupMnistTransferCNN()
+</script>
