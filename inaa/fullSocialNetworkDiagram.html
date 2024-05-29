@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ONEFi | Global Individual Financial Report | Full Social Network Diagram (Demo)</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.forceDragLink{width:500px;height:400px;margin:auto}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>Full Social Network Diagram</div>
+<svg class="forceDragLink"></svg>
+</section>
+<div class="remark">Drag any "Blue Circle" to see relations in another way.</div>
+</body>
+</html>
+<script>
+var data={'nodes':[],'links':[]}
+for(i=0;i<100;i++)data['nodes'][i]={'id':i,'name':'Friend '+i}
+for(j=0;j<99;j++)data['links'][j]={'source':j,'target':j+1}
+data['links'][99]={'source':99,'target':0}
+for(j=100;j<195;j++){
+	k=j-100;
+	data['links'][j]={'source':k,'target':k+5}}
+for(j=195;j<295;j++){
+	k=j-195;
+	data['links'][j]={'source':k,'target':99-k}}
+
+const link=d3.select('.forceDragLink').selectAll('line').data(data.links).join('line').style('stroke','green')
+const dots=d3.select('.forceDragLink').append('g').selectAll('circle').data(data.nodes).enter().append('circle').attr('r',8).style('fill','blue').style('opacity',0.8).style('cursor','pointer')
+const simulation=d3.forceSimulation(data.nodes).force('link',d3.forceLink().id(d=>d.id).links(data.links)).force('charge',d3.forceManyBody().strength(-8)).force('center',d3.forceCenter(250,225)).on('tick',ticked);
+
+function ticked(d){
+	link.attr('x1',function(d){return d.source.x}).attr('y1',function(d){return d.source.y}).attr('x2',function(d){return d.target.x}).attr('y2',function(d){return d.target.y});
+	dots.attr('cx',d=>d.x).attr("cy", d => d.y)
+	}
+
+dots.call(d3.drag().on('start',dragstarted).on('drag',dragged).on('end',dragended));
+
+function dragstarted(event,d){
+	d3.select(this).style('fill','pink')
+	d.fx=d.x;
+	d.fy=d.y;
+	simulation.alphaTarget(0.03).restart()
+	}
+
+function dragged(event,d){
+	d.fx=event.x;
+	d.fy=event.y
+	}
+
+function dragended(event,d){
+	d3.select(this).style('fill','green').style('opacity',0.6);
+	d.fx=null
+	d.fy=null
+	}
+</script>

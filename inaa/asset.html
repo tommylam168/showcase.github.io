@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ONEFi | Global Individual Financial Report | Prediction on Asset Value (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.chartContainer{width:500px;height:400px;margin:auto}
+polyline{opacity:0.3;stroke:black;stroke-width:2px;fill:none}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>Prediction on Asset Value</div>
+<div class="chartContainer"></div>
+</section>
+<div style="text-align:center">
+<button type="button" class="btn btn-primary _0">2022-06</button>
+<button type="button" class="btn btn-primary _1">2022-07</button>
+<button type="button" class="btn btn-primary _2">2022-08</button>
+<button type="button" class="btn btn-primary _3">2022-09</button>
+<button type="button" class="btn btn-primary _4">2022-10</button>
+<button type="button" class="btn btn-primary _5">2022-11</button>
+<button type="button" class="btn btn-primary _6">2022-12</button>
+<button type="button" class="btn btn-primary _7">2023-01</button>
+<button type="button" class="btn btn-primary _8">2023-02</button>
+<button type="button" class="btn btn-primary _9">2023-03</button>
+<button type="button" class="btn btn-primary _10">2023-04</button>
+<button type="button" class="btn btn-primary _11">2023-05</button>
+<button type="button" class="btn btn-primary _12">2023-06</button>
+</div>
+<br>
+<div class="remark">Move the Mouse over any "Sector Name" can get futher information.</div>
+</body>
+</html>
+<script>
+let data=[{item:'Bank Balance',data:5000000},{item:'Stocks',data:5000000},{item:'Cash',data:200000},{item:'Mutual Funds',data:5000000},{item:'Other Assets',data:300000}];
+let data0=[{item:'Bank Balance',data:3800000},{item:'Stocks',data:3500000},{item:'Cash',data:200000},{item:'Mutual Funds',data:2000000},{item:'Other Assets',data:300000}];
+let data1=[{item:'Bank Balance',data:4000000},{item:'Stocks',data:3750000},{item:'Cash',data:200000},{item:'Mutual Funds',data:2500000},{item:'Other Assets',data:300000}];
+let data2=[{item:'Bank Balance',data:4200000},{item:'Stocks',data:4000000},{item:'Cash',data:200000},{item:'Mutual Funds',data:3000000},{item:'Other Assets',data:300000}];
+let data3=[{item:'Bank Balance',data:4400000},{item:'Stocks',data:4250000},{item:'Cash',data:200000},{item:'Mutual Funds',data:3500000},{item:'Other Assets',data:300000}];
+let data4=[{item:'Bank Balance',data:4600000},{item:'Stocks',data:4500000},{item:'Cash',data:200000},{item:'Mutual Funds',data:4000000},{item:'Other Assets',data:300000}];
+let data5=[{item:'Bank Balance',data:4800000},{item:'Stocks',data:4750000},{item:'Cash',data:200000},{item:'Mutual Funds',data:4500000},{item:'Other Assets',data:300000}];
+let data6=[{item:'Bank Balance',data:5000000},{item:'Stocks',data:5000000},{item:'Cash',data:200000},{item:'Mutual Funds',data:5000000},{item:'Other Assets',data:300000}];
+let data7=[{item:'Bank Balance',data:5200000},{item:'Stocks',data:5250000},{item:'Cash',data:200000},{item:'Mutual Funds',data:5500000},{item:'Other Assets',data:300000}];
+let data8=[{item:'Bank Balance',data:5400000},{item:'Stocks',data:5500000},{item:'Cash',data:200000},{item:'Mutual Funds',data:6000000},{item:'Other Assets',data:300000}];
+let data9=[{item:'Bank Balance',data:5600000},{item:'Stocks',data:5750000},{item:'Cash',data:200000},{item:'Mutual Funds',data:6500000},{item:'Other Assets',data:300000}];
+let data10=[{item:'Bank Balance',data:5800000},{item:'Stocks',data:6000000},{item:'Cash',data:200000},{item:'Mutual Funds',data:7000000},{item:'Other Assets',data:300000}];
+let data11=[{item:'Bank Balance',data:6000000},{item:'Stocks',data:6250000},{item:'Cash',data:200000},{item:'Mutual Funds',data:7500000},{item:'Other Assets',data:300000}];
+let data12=[{item:'Bank Balance',data:6200000},{item:'Stocks',data:6500000},{item:'Cash',data:200000},{item:'Mutual Funds',data:8000000},{item:'Other Assets',data:300000}];
+
+d3.select('._0').on('click',function(){data=data0;drawPie()})
+d3.select('._1').on('click',function(){data=data1;drawPie()})
+d3.select('._2').on('click',function(){data=data2;drawPie()})
+d3.select('._3').on('click',function(){data=data3;drawPie()})
+d3.select('._4').on('click',function(){data=data4;drawPie()})
+d3.select('._5').on('click',function(){data=data5;drawPie()})
+d3.select('._6').on('click',function(){data=data6;drawPie()})
+d3.select('._7').on('click',function(){data=data7;drawPie()})
+d3.select('._8').on('click',function(){data=data8;drawPie()})
+d3.select('._9').on('click',function(){data=data9;drawPie()})
+d3.select('._10').on('click',function(){data=data10;drawPie()})
+d3.select('._11').on('click',function(){data=data11;drawPie()})
+d3.select('._12').on('click',function(){data=data12;drawPie()})
+
+const drawPie=()=>{
+	d3.select('svg').remove()
+	const svgWidth=parseInt(d3.select('.chartContainer').style('width'));
+	const svgHeight=svgWidth*0.8;
+	const margin=40;
+	const svg=d3.select('.chartContainer').append('svg').attr('width',svgWidth).attr('height',svgHeight);
+	svg.append('g').attr('class','slices').attr('transform',`translate(${svgWidth/2},${svgHeight/2})`);
+	svg.append('g').attr('class','labels');
+	svg.append('g').attr('class','lines');
+	const color=d3.scaleOrdinal().range(['green','red','purple','orange','blue']);
+	const radius=Math.min(svgWidth,svgHeight)/2-margin;
+	const piechart=d3.pie().value(d => d.data).sort(function(a,b){return d3.ascending(a.key,b.key)});
+	const arc = d3.arc().innerRadius(0).outerRadius(radius).padAngle(0.02);
+	const outerArc=d3.arc().outerRadius(radius*0.9).innerRadius(radius*0.9);
+	const data_ready=piechart(data);
+	const total=d3.sum(data,d=>d.data);
+	data.forEach(d=>{d.percentage=Math.round((d.data/total)*100)});
+	const cutePie = svg.select('.slices').selectAll('g').data(data_ready).enter().append('g').attr('class','arc');
+	cutePie.append('path').attr('d',arc).attr('fill',color).attr('stroke','#FFF').style('stroke-width','2px').style('opacity',1);
+	const arcText=d3.arc().innerRadius(radius).outerRadius(radius-10);
+	const itemText=cutePie.append('text').attr('transform',d=>`translate(${1.1*arcText.centroid(d)[0]},${1.1*arcText.centroid(d)[1]})`).text(d=>d.data.item+' ('+d.data.percentage+'%)').style('text-anchor','middle').style('font-size',12).style('fill','black');
+	d3.selectAll('.arc path').style('cursor','pointer')
+	.on('mouseover',function(){d3.select(this).transition().duration(500).style('filter','drop-shadow(2px 4px 6px black)').style('transform','scale(1.1)')})
+	.on('mouseleave', function(){d3.select(this).transition().duration(500).style('filter','drop-shadow(0 0 0 black)').style('transform','scale(1)')})
+	d3.selectAll('text')
+	.on('mouseover',function(){d3.select(this).text(d=>d.data.item+' (HKD '+d.data.data+')')})
+	.on('mouseleave',function(){d3.select(this).text(d=>d.data.item+' ('+d.data.percentage+'%)')})
+	}
+
+drawPie()
+</script>

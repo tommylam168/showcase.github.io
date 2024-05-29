@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ONEFi | Global Individual Financial Report | Credit Score Model (Demo)</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.chartContainer{width:500px;height:400px;margin:auto}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>Credit Score Model</div>
+<svg class="chartContainer"></svg>
+</section>
+</body>
+</html>
+<script>
+const data={
+	'name':'Approval',
+	'children':[
+	{
+	'name':'Personal Network',
+	'children':[
+	{
+	'name':'Family/Friends',
+	'children':[{'name':'Spouse','value':8534},{'name':'Children','value':7840},{'name':'Parents','value':6731},{'name':'Sibling','value':5914},{'name':'Friends','value':3416}]
+	},
+	{
+	'name':'Social Networks',
+	'children':[{'name':'Followers','value':7074},{'name':'Posts','value':6074},{'name':'Type of Services','value':4888},{'name':'History','value':4434},{'name':'Following','value':3074}]
+	}
+	]
+	},
+	{
+	'name':'Current Job',
+	'children':[
+	{'name':'Income','value':33010},
+	{
+	'name':'Employment Form',
+	'children':[{'name':'Full Time','value':4983},{'name':'Part Time','value':2047},{'name':'Contract','value':1875},{'name':'Self-employed','value':3746},{'name':'Unemployment','value':522}]
+	},
+	{'name':'Employer Contact','value':3010},
+	{'name':'Employment Period','value':6842},
+	{'name':'Industry','value':2202},
+	{'name':'Position','value':1382},
+	{
+	'name':'Payment Method',
+	'children':[{'name':'Autopay','value':1983},{'name':'Cheque','value':2047},{'name':'Cash','value':1375},{'name':'Others','value':8746}]
+	},
+	]
+	},
+	{
+	'name':'Asset/Liability',
+	'children':[{'name':'Property','value':16583},{'name':'Stocks','value':12833},{'name':'Luxury Asset','value':7732},{'name':'Loans','value':6623},{'name':'TU Report','value':2386}]
+	},
+	{
+	'name':'History',
+	'children':[{'name':'Bankrupt Records','value':0},{'name':'IVA Records','value':1000}]
+	}
+	]}
+
+const width=500;
+const height=400;
+const tree=data=>{
+	const root=d3.hierarchy(data);
+	root.dx=10;
+	root.dy=90;
+	return d3.tree().nodeSize([root.dx,root.dy])(root)
+	}
+const root=tree(data);
+const svg=d3.select('svg').attr('width',width).attr('height',height);
+const g=svg.append('g').attr('font-size',10).attr('transform',`translate(100,200)`);
+const link=g.append('g').attr('fill','none').attr('stroke','green').attr('stroke-opacity',0.4).attr('stroke-width',1.5).selectAll('path').data(root.links()).join('path').attr('d',d3.linkHorizontal().x(d=>d.y).y(d=>d.x));
+const node=g.append('g').attr('stroke-linejoin','round').attr('stroke-width',3).selectAll('g').data(root.descendants()).join('g').attr('transform',d =>`translate(${d.y},${d.x})`);
+node.append('circle').attr('fill',d=>d.children?'#555':'#999').attr('r',2.5);
+node.append('text').attr('dy','0.31em').attr('x',d=>d.children?-6:6).attr('text-anchor',d=>d.children?'end':'start').text(d=>d.data.name).clone(true).lower().attr('stroke','white');
+</script>

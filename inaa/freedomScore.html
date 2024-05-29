@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ONEFi | Global Individual Financial Report | ONEFi Financial Freedom Score (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.chartContainer{width:500px;margin:auto}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>ONEFi Financial Freedom Score</div>
+<div class="chartContainer"></div>
+</section>
+<div class="remark">Move the Mouse over any "Bar" can get futher information.</div>
+</body>
+</html>
+<script>
+let data=[{item:'2022-06',data:24738},{item:'2022-07',data:24615},{item:'2022-08',data:23541},{item:'2022-09',data:23403},{item:'2022-10',data:24514},{item:'2022-11',data:24625},{item:'2022-12',data:24736},{item:'2023-01',data:24635},{item:'2023-02',data:24555},{item:'2023-03',data:24562},{item:'2023-04',data:24658},{item:'2023-05',data:24788},{item:'2023-06',data:23825}];
+
+function drawBarChart(){
+	d3.select('.chartContainer svg').remove();
+	const rwdSvgWidth=parseInt(d3.select('.chartContainer').style('width'));
+	const rwdSvgHeight=rwdSvgWidth*0.8;
+	const margin=40;
+	const svg=d3.select('.chartContainer').append('svg').attr('width',rwdSvgWidth).attr('height',rwdSvgHeight);
+	xData=data.map((i)=>i['item']);
+	yData=data.map((i)=>parseInt(i['data']));
+	const xScale=d3.scaleBand().domain(xData).range([margin*2,rwdSvgWidth-margin/2]).padding(0.2);
+	const xAxis=d3.axisBottom(xScale);
+	const xAxisGroup=svg.append('g').call(xAxis).attr('transform',`translate(0,${rwdSvgHeight-margin})`).selectAll('text').attr('transform','translate(10,0)').style('font-size','7px').style('text-anchor','end');
+	const yScale=d3.scaleLinear().domain([0,d3.max(yData)]).range([rwdSvgHeight-margin,margin]).nice()
+	const yAxis = d3.axisLeft(yScale).ticks(5).tickSize(3).tickFormat(function(d){return d})
+	const yAxisGroup = svg.append('g').call(yAxis).attr('transform',`translate(${margin*2},0)`)
+	const bar=svg.selectAll('rect').data(data).join('rect')
+	bar.attr('x',d=>xScale(d['item'])).attr('y',yScale(0)).attr('width',xScale.bandwidth()).transition().duration(1000).delay((d,i)=>i*100).attr('y',d=>yScale(parseInt(d['data']))).attr('height',d=>{return (rwdSvgHeight-margin)-yScale(parseInt(d['data']))}).attr('fill','green');
+	bar.attr('cursor','pointer').on('mouseover',handleMouseOver).on('mouseleave',handleMouseLeave)
+	function handleMouseOver(d,i){
+		d3.select(this).attr('fill','red');
+		svg.append('text').attr('class','infoText').attr('y',yScale(parseInt(d.target.__data__['data']))-3).attr('x',xScale(d.target.__data__['item'])+12).style('fill','#000').style('font-size','12px').style('font-weight','bold').style('text-anchor','middle').text(d.target.__data__['data'])}
+	function handleMouseLeave(){
+		d3.select(this).attr('fill','#69b3a2')
+		svg.select('.infoText').remove()}
+		}
+
+drawBarChart()
+</script>

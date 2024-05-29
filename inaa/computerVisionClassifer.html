@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ONEFi | Global Individual Financial Report | Computer Vision Classifer on Richness Score and Reliable Score (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section{text-align:center}
+table{width:400px;margin:0 auto;border-collapse:collapse}
+th,td{width:195px;border:1px black solid}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>Computer Vision on Richness Score and Reliable Score</div>
+<img width="500" src="ferrariAI.jpg"/>
+<div style="margin:5px auto;font-size:18px">Words found in this Picture</div>
+<div><table id="word"><tr style="color:white;background:#888"><th>Word</th><th>Confidence Level</th></tr></table></div></section>
+</body>
+</html>
+<script>
+$(document).ready(function(){
+	$.getJSON('ferrariAI.json',function(data,status){
+		console.log(status,888);
+		if(status=='success'){
+			$.each(data['Labels'],function(i,val){$('#word tr:last').after('<tr><td>'+val['Name']+'</td><td>'+val['Confidence']+'</td></tr>')})
+			}});
+});
+</script>

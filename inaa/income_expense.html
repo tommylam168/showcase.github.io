@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ONEFi | Global Individual Financial Report | Prediction of Income and Expense (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.income{border:2px blue solid}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<svg class="income" width="500" height="400"></svg>
+</section>
+<div class="remark">Move the Mouse over any "Dot" can get futher information.</div>
+</body>
+</html>
+<script>
+var monthList=['2022-06','2022-07','2022-08','2022-09','2022-10','2022-11','2022-12','2023-01','2023-02','2023-03','2023-04','2023-05','2023-06'];
+var svg=d3.select('.income');
+var margin=200;
+var width=svg.attr('width')-margin;
+var height=svg.attr('height')-margin;
+var xScale=d3.scaleLinear().domain([0,12]).range([0,width]);
+var yScale=d3.scaleLinear().domain([0,450000]).range([height,0]);
+svg.append('text').attr('x',width/2+100).attr('y',70).attr('text-anchor','middle').style('font-family','Helvetica').style('font-size',20).text('Prediction of Income and Expense');
+svg.append('text').attr('x',width/2+100).attr('y',height-15+175).attr('text-anchor','middle').style('font-family','Helvetica').style('font-size',12).text('Month');
+svg.append('text').attr('text-anchor','middle').attr('transform','translate(38,'+height+')rotate(-90)').style('font-family','Helvetica').style('font-size',12).text('HKD');
+svg.append('g').attr('transform','translate(100,'+(height+100)+')').call(d3.axisBottom(xScale).tickFormat(function(d){return monthList[d]})).selectAll('text').attr('transform','translate(12,26)rotate(90)');
+svg.append('g').attr('transform','translate(100,'+(width-200)+')').call(d3.axisLeft(yScale));
+//income
+actualIncome=[[0,420000],[1,400000],[2,380000],[3,400000],[4,420000],[5,400000],[6,380000],[7,400000]];
+predictIncome=[[7,400000],[8,420000],[9,400000],[10,380000],[11,400000],[12,380000]];
+svg.append('g').selectAll('dot').data(actualIncome).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','green');
+svg.append('g').selectAll('dot').data(predictIncome).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','red');
+var actualIncomeLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+var predictIncomeLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+svg.append('path').datum(actualIncome).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',actualIncomeLine).style('fill','none').style('stroke','green').style('stroke-width','2');
+svg.append('path').datum(predictIncome).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',predictIncomeLine).style('fill','none').style('stroke-dasharray',('1,1')).style('stroke','green').style('stroke-width','2');
+//housing
+actualHousingExpense=[[0,80000],[1,80000],[2,80000],[3,80000],[4,80000],[5,80000],[6,80000],[7,80000]];
+predictHousingExpense=[[7,80000],[8,80000],[9,80000],[10,80000],[11,80000],[12,80000]];
+svg.append('g').selectAll('dot').data(actualHousingExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','green');
+svg.append('g').selectAll('dot').data(predictHousingExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','red');
+var actualHousingLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+var predictHousingLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+svg.append('path').datum(actualHousingExpense).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',actualHousingLine).style('fill','none').style('stroke','purple').style('stroke-width','2');
+svg.append('path').datum(predictHousingExpense).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',predictHousingLine).style('fill','none').style('stroke-dasharray',('1,1')).style('stroke','purple').style('stroke-width','2');
+//food
+actualFoodExpense=[[0,30000],[1,29500],[2,33000],[3,28800],[4,31000],[5,32000],[6,28000],[7,30000]];
+predictFoodExpense=[[7,30000],[8,30000],[9,30000],[10,30000],[11,30000],[12,30000]];
+svg.append('g').selectAll('dot').data(actualFoodExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','green');
+svg.append('g').selectAll('dot').data(predictFoodExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','red');
+var actualFoodExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+var predictFoodExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+svg.append('path').datum(actualFoodExpense).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',actualFoodExpenseLine).style('fill','none').style('stroke','orange').style('stroke-width','2');
+svg.append('path').datum(predictFoodExpense).attr('class','line') .attr('transform','translate('+100+','+100+')').attr('d',predictFoodExpenseLine).style('fill','none').style('stroke-dasharray',('1,1')).style('stroke','orange').style('stroke-width','2');
+//entertainment
+actualEntertainmentExpense=[[0,180000],[1,100000],[2,160000],[3,160000],[4,70000],[5,120000],[6,130000],[7,50000]];
+predictEntertainmentExpense=[[7,50000],[8,130000],[9,120000],[10,110000],[11,120000],[12,130000]];
+svg.append('g').selectAll('dot').data(actualEntertainmentExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','green');
+svg.append('g').selectAll('dot').data(predictEntertainmentExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','red');
+var actualEntertainmentExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+var predictEntertainmentExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+svg.append('path').datum(actualEntertainmentExpense).attr('class','line').attr('transform','translate('+100+','+100+')').attr('d',actualEntertainmentExpenseLine).style('fill','none').style('stroke','red').style('stroke-width','2');
+svg.append('path').datum(predictEntertainmentExpense).attr('class','line').attr('transform','translate('+100+','+100+')').attr('d',predictEntertainmentExpenseLine).style('fill','none').style('stroke-dasharray',('1,1')).style('stroke','red').style('stroke-width','2');
+//expense
+actualExpense=[];
+predictExpense=[];
+for(i=0;i<8;i++)actualExpense[i]=[i,actualHousingExpense[i][1]+actualFoodExpense[i][1]+actualEntertainmentExpense[i][1]];
+for(i=0;i<6;i++)predictExpense[i]=[i+7,predictHousingExpense[i][1]+predictFoodExpense[i][1]+predictEntertainmentExpense[i][1]];
+svg.append('g').selectAll('dot').data(actualExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','green');
+svg.append('g').selectAll('dot').data(predictExpense).enter().append('circle').attr('cx',function(d){return xScale(d[0])}).attr('cy',function(d){return yScale(d[1])}).attr('r',3).attr('transform','translate('+100+','+100+')').style('fill','red');
+var actualExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+var predictExpenseLine=d3.line().x(function(d){return xScale(d[0])}).y(function(d){return yScale(d[1])}).curve(d3.curveMonotoneX)
+svg.append('path').datum(actualExpense).attr('class','line').attr('transform','translate('+100+','+100+')').attr('d',actualExpenseLine).style('fill','none').style('stroke','blue').style('stroke-width','2');
+svg.append('path').datum(predictExpense).attr('class','line').attr('transform','translate('+100+','+100+')').attr('d',predictExpenseLine).style('fill','none').style('stroke-dasharray',('1,1')).style('stroke','blue').style('stroke-width','2');
+//initialize
+var chartData=[
+{name:'Total Income',color:'green'},
+{name:'Total Expense',color:'blue'},
+{name:'Housing',color:'purple'},
+{name:'Food and Dining Out',color:'orange'},
+{name:'Entertainment',color:'red'}];
+var legendItemSize=12;
+var legendSpacing=4;
+var xOffset=150;
+var yOffset=100;
+var legend=d3.select('svg').selectAll('.legendItem').data(chartData);
+legend.enter().append('rect').attr('class','legendItem').attr('width',10).attr('height',10).style('fill',d=>d.color)
+	.attr('transform',(d,i)=>{
+		var x=xOffset+265;
+		var y=yOffset+(12)*i+57;return `translate(${x},${y})`;});
+legend.enter().append('text').attr('x',xOffset+277).attr('y',(d,i)=>yOffset+(12)*i+65).style('font-size',8).text(d=>d.name);  
+//show
+const tooltips=d3.select('section').append('div').style('position','absolute').style('opacity',0);
+svg.selectAll('circle').on('mouseover',function(){tooltips.style('opacity',1)})
+.on('mousemove',function(d){
+	let pt=d3.pointer(event,this);
+	if(d.target.__data__[0]>7){
+		msg='We predict the value is: HKD '+d.target.__data__[1]+'.'
+		}else{msg='The actual value is: HKD '+d.target.__data__[1]+'.'}
+	tooltips.style('opacity',1).style('top',pt[1]+120+'px').style('left',pt[0]+500+'px').html('<span style="font-size:8px">'+msg+'</span>')})
+.on('mouseleave',function(){tooltips.style('opacity',0)});
+</script>

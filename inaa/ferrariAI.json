@@ -1,0 +1,470 @@
+{
+    "Labels": [
+		{
+			"Name": "Ferrari",
+			"Confidence": 99.99999999668945
+		},
+        {
+            "Name": "Car",
+            "Confidence": 99.99685668945312,
+            "Instances": [
+                {
+                    "BoundingBox": {
+                        "Width": 0.688439130783081,
+                        "Height": 0.3741714358329773,
+                        "Left": 0.2640901505947113,
+                        "Top": 0.4114494025707245
+                    },
+                    "Confidence": 99.8185806274414
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.2509991526603699,
+                        "Height": 0.20154958963394165,
+                        "Left": 0.027618788182735443,
+                        "Top": 0.3658286929130554
+                    },
+                    "Confidence": 99.17418670654297
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.19313453137874603,
+                        "Height": 0.09757865965366364,
+                        "Left": 0.21790337562561035,
+                        "Top": 0.3620106875896454
+                    },
+                    "Confidence": 98.88681030273438
+                }
+            ],
+            "Parents": [
+                {
+                    "Name": "Transportation"
+                },
+                {
+                    "Name": "Vehicle"
+                }
+            ],
+            "Aliases": [
+                {
+                    "Name": "Automobile"
+                }
+            ],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Car Show",
+            "Confidence": 99.99685668945312,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Car"
+                },
+                {
+                    "Name": "Transportation"
+                },
+                {
+                    "Name": "Vehicle"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Events and Attractions"
+                }
+            ]
+        },
+        {
+            "Name": "Transportation",
+            "Confidence": 99.99685668945312,
+            "Instances": [],
+            "Parents": [],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Vehicle",
+            "Confidence": 99.99685668945312,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Transportation"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Machine",
+            "Confidence": 98.22710418701172,
+            "Instances": [],
+            "Parents": [],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Tools and Machinery"
+                }
+            ]
+        },
+        {
+            "Name": "Wheel",
+            "Confidence": 98.22710418701172,
+            "Instances": [
+                {
+                    "BoundingBox": {
+                        "Width": 0.14088797569274902,
+                        "Height": 0.18751539289951324,
+                        "Left": 0.3680921196937561,
+                        "Top": 0.5953624844551086
+                    },
+                    "Confidence": 98.22710418701172
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.030343417078256607,
+                        "Height": 0.054156262427568436,
+                        "Left": 0.2831540107727051,
+                        "Top": 0.4068561792373657
+                    },
+                    "Confidence": 96.29896545410156
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.10084834694862366,
+                        "Height": 0.16438905894756317,
+                        "Left": 0.8159427642822266,
+                        "Top": 0.5679493546485901
+                    },
+                    "Confidence": 94.742919921875
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.022335972636938095,
+                        "Height": 0.04280775785446167,
+                        "Left": 0.37795987725257874,
+                        "Top": 0.40320736169815063
+                    },
+                    "Confidence": 94.38656616210938
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.027695627883076668,
+                        "Height": 0.09712179750204086,
+                        "Left": 0.07673530280590057,
+                        "Top": 0.46693962812423706
+                    },
+                    "Confidence": 89.30818176269531
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.019561082124710083,
+                        "Height": 0.07196417450904846,
+                        "Left": 0.02934196963906288,
+                        "Top": 0.4411607086658478
+                    },
+                    "Confidence": 88.60221862792969
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.027454545721411705,
+                        "Height": 0.04253152012825012,
+                        "Left": 0.5607882142066956,
+                        "Top": 0.40299859642982483
+                    },
+                    "Confidence": 72.30435180664062
+                }
+            ],
+            "Parents": [
+                {
+                    "Name": "Machine"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Coupe",
+            "Confidence": 95.22296142578125,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Car"
+                },
+                {
+                    "Name": "Sports Car"
+                },
+                {
+                    "Name": "Transportation"
+                },
+                {
+                    "Name": "Vehicle"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Sports Car",
+            "Confidence": 95.22296142578125,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Car"
+                },
+                {
+                    "Name": "Transportation"
+                },
+                {
+                    "Name": "Vehicle"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Person",
+            "Confidence": 88.71910095214844,
+            "Instances": [
+                {
+                    "BoundingBox": {
+                        "Width": 0.06466283649206161,
+                        "Height": 0.24950075149536133,
+                        "Left": 0.9353371858596802,
+                        "Top": 0.3863660991191864
+                    },
+                    "Confidence": 88.71910095214844
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.02761305309832096,
+                        "Height": 0.05727308988571167,
+                        "Left": 0.24953345954418182,
+                        "Top": 0.3257090449333191
+                    },
+                    "Confidence": 83.5599136352539
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.03964940086007118,
+                        "Height": 0.09711203724145889,
+                        "Left": 0.7620041370391846,
+                        "Top": 0.33519819378852844
+                    },
+                    "Confidence": 72.97555541992188
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.03633749112486839,
+                        "Height": 0.08382750302553177,
+                        "Left": 0.902666449546814,
+                        "Top": 0.2801937162876129
+                    },
+                    "Confidence": 66.66358947753906
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.031035475432872772,
+                        "Height": 0.06104062870144844,
+                        "Left": 0.7751976847648621,
+                        "Top": 0.3082467317581177
+                    },
+                    "Confidence": 62.12610626220703
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.02750714309513569,
+                        "Height": 0.07032150030136108,
+                        "Left": 0.2022886425256729,
+                        "Top": 0.3210877776145935
+                    },
+                    "Confidence": 61.5622444152832
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.05148916691541672,
+                        "Height": 0.09472007304430008,
+                        "Left": 0.8107066750526428,
+                        "Top": 0.3575533926486969
+                    },
+                    "Confidence": 61.345035552978516
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.05644218623638153,
+                        "Height": 0.13852566480636597,
+                        "Left": 0.8942556381225586,
+                        "Top": 0.3592148423194885
+                    },
+                    "Confidence": 60.223724365234375
+                },
+                {
+                    "BoundingBox": {
+                        "Width": 0.03662928566336632,
+                        "Height": 0.08066591620445251,
+                        "Left": 0.8025392293930054,
+                        "Top": 0.299691379070282
+                    },
+                    "Confidence": 58.794944763183594
+                }
+            ],
+            "Parents": [],
+            "Aliases": [
+                {
+                    "Name": "Human"
+                }
+            ],
+            "Categories": [
+                {
+                    "Name": "Person Description"
+                }
+            ]
+        },
+        {
+            "Name": "Indoors",
+            "Confidence": 87.38430786132812,
+            "Instances": [],
+            "Parents": [],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Home and Indoors"
+                }
+            ]
+        },
+        {
+            "Name": "Accessories",
+            "Confidence": 75.92304229736328,
+            "Instances": [],
+            "Parents": [],
+            "Aliases": [
+                {
+                    "Name": "Accessory"
+                }
+            ],
+            "Categories": [
+                {
+                    "Name": "Apparel and Accessories"
+                }
+            ]
+        },
+        {
+            "Name": "Glasses",
+            "Confidence": 75.92304229736328,
+            "Instances": [
+                {
+                    "BoundingBox": {
+                        "Width": 0.01977967470884323,
+                        "Height": 0.01515967771410942,
+                        "Left": 0.9544191360473633,
+                        "Top": 0.4054456651210785
+                    },
+                    "Confidence": 75.92304229736328
+                }
+            ],
+            "Parents": [
+                {
+                    "Name": "Accessories"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Apparel and Accessories"
+                }
+            ]
+        },
+        {
+            "Name": "Jaguar Car",
+            "Confidence": 72.51789855957031,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Car"
+                },
+                {
+                    "Name": "Transportation"
+                },
+                {
+                    "Name": "Vehicle"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        },
+        {
+            "Name": "Face",
+            "Confidence": 61.72963333129883,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Head"
+                },
+                {
+                    "Name": "Person"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Person Description"
+                }
+            ]
+        },
+        {
+            "Name": "Head",
+            "Confidence": 61.72963333129883,
+            "Instances": [],
+            "Parents": [
+                {
+                    "Name": "Person"
+                }
+            ],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Person Description"
+                }
+            ]
+        },
+        {
+            "Name": "Tire",
+            "Confidence": 55.37863540649414,
+            "Instances": [],
+            "Parents": [],
+            "Aliases": [],
+            "Categories": [
+                {
+                    "Name": "Vehicles and Automotive"
+                }
+            ]
+        }
+    ],
+    "LabelModelVersion": "3.0"
+}

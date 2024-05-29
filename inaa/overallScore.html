@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ONEFi | Global Individual Financial Report | ONEFi Overall Financial Score (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+header{font-size:28px;text-align:center}
+section,.remark{text-align:center}
+.chartContainer{width:500px;margin:auto}
+</style>
+</head>
+<body>
+<header>Reference Number: INAA001288</header>
+<section>
+<div>ONEFi Overall Financial Score</div>
+<div class="chartContainer"></div>
+</section>
+<br>
+<div style="text-align:center">
+<button type="button" class="btn btn-primary _0">2022-06</button>
+<button type="button" class="btn btn-primary _1">2022-07</button>
+<button type="button" class="btn btn-primary _2">2022-08</button>
+<button type="button" class="btn btn-primary _3">2022-09</button>
+<button type="button" class="btn btn-primary _4">2022-10</button>
+<button type="button" class="btn btn-primary _5">2022-11</button>
+<button type="button" class="btn btn-primary _6">2022-12</button>
+<button type="button" class="btn btn-primary _7">2023-01</button>
+<button type="button" class="btn btn-primary _8">2023-02</button>
+<button type="button" class="btn btn-primary _9">2023-03</button>
+<button type="button" class="btn btn-primary _10">2023-04</button>
+<button type="button" class="btn btn-primary _11">2023-05</button>
+<button type="button" class="btn btn-primary _12">2023-06</button>
+</div>
+<div class="remark">Move the Mouse over any "Bar" can get futher information.</div>
+</body>
+</html>
+<script>
+let data=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data0=[{item:'Debt Service Ratio',data:3.95},{item:'Saving Ratio',data:27.05},{item:'Expense Ratio',data:53.08},{item:'Solvency Ratio',data:92.48},{item:'Debt2Asset Ratio',data:3.52},{item:'Current Ratio',data:81.45},{item:'Stability Ratio',data:5.38}];
+let data1=[{item:'Debt Service Ratio',data:2.85},{item:'Saving Ratio',data:26.05},{item:'Expense Ratio',data:54.18},{item:'Solvency Ratio',data:92.48},{item:'Debt2Asset Ratio',data:3.52},{item:'Current Ratio',data:85.45},{item:'Stability Ratio',data:4.38}];
+let data2=[{item:'Debt Service Ratio',data:4.55},{item:'Saving Ratio',data:26.05},{item:'Expense Ratio',data:50.08},{item:'Solvency Ratio',data:92.48},{item:'Debt2Asset Ratio',data:2.52},{item:'Current Ratio',data:78.45},{item:'Stability Ratio',data:2.38}];
+let data3=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:27.05},{item:'Expense Ratio',data:54.05},{item:'Solvency Ratio',data:85.38},{item:'Debt2Asset Ratio',data:4.32},{item:'Current Ratio',data:92.45},{item:'Stability Ratio',data:3.28}];
+let data4=[{item:'Debt Service Ratio',data:3.15},{item:'Saving Ratio',data:27.05},{item:'Expense Ratio',data:48.08},{item:'Solvency Ratio',data:72.48},{item:'Debt2Asset Ratio',data:5.22},{item:'Current Ratio',data:88.33},{item:'Stability Ratio',data:3.88}];
+let data5=[{item:'Debt Service Ratio',data:2.25},{item:'Saving Ratio',data:22.05},{item:'Expense Ratio',data:52.08},{item:'Solvency Ratio',data:83.48},{item:'Debt2Asset Ratio',data:3.52},{item:'Current Ratio',data:76.45},{item:'Stability Ratio',data:2.18}];
+let data6=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data7=[{item:'Debt Service Ratio',data:4.55},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data8=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data9=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data10=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data11=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+let data12=[{item:'Debt Service Ratio',data:2.95},{item:'Saving Ratio',data:28.05},{item:'Expense Ratio',data:54.08},{item:'Solvency Ratio',data:95.48},{item:'Debt2Asset Ratio',data:4.52},{item:'Current Ratio',data:82.45},{item:'Stability Ratio',data:3.38}];
+
+d3.select('._0').on('click',function(){data=data0;drawBarChart()})
+d3.select('._1').on('click',function(){data=data1;drawBarChart()})
+d3.select('._2').on('click',function(){data=data2;drawBarChart()})
+d3.select('._3').on('click',function(){data=data3;drawBarChart()})
+d3.select('._4').on('click',function(){data=data4;drawBarChart()})
+d3.select('._5').on('click',function(){data=data5;drawBarChart()})
+d3.select('._6').on('click',function(){data=data6;drawBarChart()})
+d3.select('._7').on('click',function(){data=data7;drawBarChart()})
+d3.select('._8').on('click',function(){data=data8;drawBarChart()})
+d3.select('._9').on('click',function(){data=data9;drawBarChart()})
+d3.select('._10').on('click',function(){data=data10;drawBarChart()})
+d3.select('._11').on('click',function(){data=data11;drawBarChart()})
+d3.select('._12').on('click',function(){data=data12;drawBarChart()})
+
+function drawBarChart(){
+	d3.select('.chartContainer svg').remove();
+	const rwdSvgWidth=parseInt(d3.select('.chartContainer').style('width'));
+	const rwdSvgHeight=rwdSvgWidth*0.8;
+	const margin=40;
+	const svg=d3.select('.chartContainer').append('svg').attr('width',rwdSvgWidth).attr('height',rwdSvgHeight);
+	xData=data.map((i)=>i['item']);
+	yData=data.map((i)=>parseInt(i['data']));
+	const xScale=d3.scaleBand().domain(xData).range([margin*2,rwdSvgWidth-margin/2]).padding(0.2);
+	const xAxis=d3.axisBottom(xScale);
+	const xAxisGroup=svg.append('g').call(xAxis).attr('transform',`translate(0,${rwdSvgHeight-margin})`).selectAll('text').attr('transform','translate(28,0)').style('font-size','7px').style('text-anchor','end');
+	const yScale=d3.scaleLinear().domain([0,d3.max(yData)]).range([rwdSvgHeight-margin,margin]).nice()
+	const yAxis = d3.axisLeft(yScale).ticks(5).tickSize(3).tickFormat(function(d){return d+'%'})
+	const yAxisGroup = svg.append('g').call(yAxis).attr('transform',`translate(${margin*2},0)`)
+	const bar=svg.selectAll('rect').data(data).join('rect')
+	bar.attr('x',d=>xScale(d['item'])).attr('y',yScale(0)).attr('width',xScale.bandwidth()).transition().duration(1000).delay((d,i)=>i*100).attr('y',d=>yScale(parseInt(d['data']))).attr('height',d=>{return (rwdSvgHeight-margin)-yScale(parseInt(d['data']))}).attr('fill','green');
+	bar.attr('cursor','pointer').on('mouseover',handleMouseOver).on('mouseleave',handleMouseLeave)
+	function handleMouseOver(d,i){
+		d3.select(this).attr('fill','red');
+		svg.append('text').attr('class','infoText').attr('y',yScale(parseInt(d.target.__data__['data']))-8).attr('x',xScale(d.target.__data__['item'])+25).style('fill','#000').style('font-size','12px').style('font-weight','bold').style('text-anchor','middle').text(d.target.__data__['data']+'%')}
+	function handleMouseLeave(){
+		d3.select(this).attr('fill','#69b3a2')
+		svg.select('.infoText').remove()}
+		}
+
+drawBarChart()
+</script>

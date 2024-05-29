@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ONEFi | Global Individual Financial Report (Demo)</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1306.0.min.js"></script>
+<script>
+AWS.config.region='ap-southeast-1';
+AWS.config.credentials=new AWS.CognitoIdentityCredentials({IdentityPoolId:'ap-southeast-1:43590c89-0068-4076-8748-3676c0a084e5',});
+
+function getYahooSearch(){
+	$('#yahooSearch').html('');
+	var query=$('#query').val();
+	if(query.length){
+		$('#query').css({'background-color':'white'});
+		input={'query':query};
+		var lambda=new AWS.Lambda();
+		lambda.invoke({
+			FunctionName:'getYahooSearch',
+			Payload:JSON.stringify(input)},
+			function(err,data){
+				if(err)console.log(err,err.stack);
+				else{
+					var result=JSON.parse(data.Payload);
+					$('#yahooSearch').html('<div class="title">Yahoo! Search result of <strong>'+query+'</strong><div>')
+					$.each(result,function(key,val){$('#yahooSearch').append('<table><tr><td>Title</td><td>'+result[key]['title']+'</td></tr><tr><td>Description</td><td>'+result[key]['desc']+'</td></tr><tr><td>Website</td><td><a href="'+result[key]['href']+'">'+decodeURIComponent(result[key]['href'])+'</a></td></tr></table>')})
+					}})}
+					}
+
+function getGoogleSearch(){
+	$('#googleSearch').html('');
+	var query=$('#query').val();
+	if(query.length){
+		$('#query').css({'background-color':'white'});
+		input={'query':query};
+		var lambda=new AWS.Lambda();
+		lambda.invoke({
+			FunctionName:'getGoogleSearch',
+			Payload:JSON.stringify(input)},
+			function(err,data){
+				if(err)console.log(err,err.stack);
+				else{
+					var result=JSON.parse(data.Payload);
+					$('#googleSearch').html('<div class="title">Google Search result of <strong>'+query+'</strong><div>')
+					$.each(result,function(key,val){$('#googleSearch').append('<table><tr><td>Title</td><td>'+result[key]['title']+'</td></tr><tr><td>Description</td><td>'+result[key]['desc']+'</td></tr><tr><td>Website</td><td><a href="'+result[key]['href']+'">'+decodeURIComponent(result[key]['href'])+'</a></td></tr></table>')})
+					}})}
+					}
+
+function getSearch(){
+	getGoogleSearch();
+	getYahooSearch()
+	}
+
+$(document).ready(function(){
+	$('#submit').on('click',getSearch);
+	$('#query').val('ONEFi');
+	$('#submit').click();
+})
+</script>
+<style>
+body{min-width:320px;margin:0 auto}
+section{width:100%}
+header{width:100%;height:80px;background:#133364}
+header #search{width:98%;max-width:800px;margin:0 auto;padding:20px 1%;display:flex}
+header #query{width:78%;margin:0 1%;padding:5px 3px;font-size:18px;border-radius:8px}
+header #submit{width:18%;margin:0 1%;padding:5px 3px;font-size:18px;border-radius:8px;background:#CCC;box-shadow:#333 2px 2px 2px;text-align:center}
+#yahooSearch{width:98%;max-width:800px;margin:0 auto;padding:0 1%}
+#yahooSearch .title{width:96%;margin:0 auto;padding:5px 1%;font-size:28px;background:#CCC}
+#yahooSearch strong{color:blue}
+#yahooSearch table{width:98%;max-width:800px;margin:0 auto;padding:0 1%;border:2px #888 solid}
+#yahooSearch table tr:nth-child(2){background:#CCC}
+#yahooSearch table td:nth-child(1){width:88px;padding:5px 3px}
+#googleSearch{width:98%;max-width:800px;margin:0 auto;padding:0 1%}
+#googleSearch .title{width:96%;margin:0 auto;padding:5px 1%;font-size:28px;background:#CCC}
+#googleSearch strong{color:blue}
+#googleSearch table{width:98%;max-width:800px;margin:0 auto;padding:0 1%;border:2px #888 solid}
+#googleSearch table tr:nth-child(2){background:#CCC}
+#googleSearch table td:nth-child(1){width:88px;padding:5px 3px}
+</style>
+</head>
+
+<body>
+<header><div id="search"><input type="text" id="query" name="query"><div id="submit"><div>Query</div></div></div></header>
+<section>
+<div id="yahooSearch"></div>
+<div id="googleSearch"></div>
+</section>
+</body>
+</html>
