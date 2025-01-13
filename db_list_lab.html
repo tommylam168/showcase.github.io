@@ -159,19 +159,16 @@ https://github.com/pranabdas/Access-OneDrive-via-Microsoft-Graph-Python/blob/mai
 
 
 __________
-
 1. Choose ml_licensees.xls
 2. Add the following in Column I
 ="INSERT INTO money_lender(mlrno,ml_license,ml_ename,ml_name,expiry_date,license_status)VALUES("&A1&",'"&B1&"','"&D1&"','"&E1&"','"&TEXT(F1,"yyyy-mm-dd")&"',1);"
 3. Replace ' by "&#39;" in Column D and E
-
 
 1. Choose ml_list2.xls
 2. Add the following in Column I
 ="INSERT INTO money_lender(mlrno,ml_ename,ml_name,expiry_date,license_status)VALUES("&A1&",'"&C1&"','"&D1&"','"&TEXT(E1,"yyyy-mm-dd")&"',0);"
 3. Replace ' by "&#39;" in Column C and D
 4. Search "Liq", and remove "(In Liquidation)" and "(清盤中)"
-
 
 1. Choose ml_list3.xls
 2. Add the following in Column I
@@ -181,16 +178,13 @@ __________
 5. Replace D by 2 in Cloumn D
 6. Replace W by 3 in Cloumn D
 
-
 1. Choose ml_list1.xls
 2. Add the following in Column I
 ="INSERT INTO money_lender(mlrno,ml_ename,ml_name,license_status)VALUES("&A1&",'"&C1&"','"&D1&"',4);"
 3. Replace ' by "&#39;" in Column C and D
-
 __________
 Database:ml_gazette
 ="INSERT INTO ml_gazette(publish_date,notice_number,ml_name,ml_address)VALUES('"&TEXT(A1,"yyyy-mm-dd")&"',"&B1&",'"&C1&"','"&D1&"');"
-
 __________
 Database:ml_atp
 1. Remove "-" (exactly) from Column B to J
@@ -201,13 +195,11 @@ Database:ml_atp
 ="INSERT ml_atp(atp_ename,atp_name,atp_eaddress,atp_address,mlrno,ml_hotline,reg_date)VALUES('"&TEXTJOIN("','",FALSE,F2:I2,B2,LEFT(E2,8),TEXT(J2,"yyyy-mm-dd"))&"');"
 6. Add the following in Column M2
 =IF(OR(F2<>"",G2<>""),L2,"")
-
 __________
 Database:tcsp
 1. Add the following in Column H
 ="INSERT INTO hk_tcsp(tcsp_licence,tcsp_ename,tcsp_name,tcsp_address,tcsp_eremark,tcsp_remark)VALUES('"&TEXTJOIN("','",FALSE,A2:F2)&"');"
 2. Replace ' by "&#39;" in Column B,C,D.
-
 __________
 Construct Database
 
@@ -215,13 +207,10 @@ Construct Database
 2. Run codeML.php
 3. Run codeGaz.php
 
-
 Others
 1. gazette.php: Show all ml_gazette where mlrno is NULL
 2. atpconverter.php: Get atp info from folder named data
-
 __________
-
 1. $ mysql> SHOW VARIABLES LIKE "secure_file_priv";
 You can see the directory set is "/var/lib/mysql-files/"
 
@@ -246,12 +235,10 @@ LOAD DATA INFILE "C:/newCo18.html" INTO TABLE z_hk_co FIELDS terminated by "||" 
 LOAD DATA INFILE "C:/newCo19.html" INTO TABLE z_hk_co FIELDS terminated by "||" LINES TERMINATED BY "\n" (period_cover,seq_no,co_ename,co_name,crno,reg_date,change_date);
 LOAD DATA INFILE "C:/newCo20.html" INTO TABLE z_hk_co FIELDS terminated by "||" LINES TERMINATED BY "\n" (period_cover,seq_no,co_ename,co_name,crno,reg_date,change_date);
 LOAD DATA INFILE "C:/newCo21.html" INTO TABLE z_hk_co FIELDS terminated by "||" LINES TERMINATED BY "\n" (period_cover,seq_no,co_ename,co_name,crno,reg_date,change_date);
-
 __________
 Credit Card
 
 LOAD DATA INFILE "C:/card.html" INTO TABLE credit_card FIELDS terminated by "||" LINES TERMINATED BY "\n" (bank_tc,bank_sc,bank_en,card_tc,card_sc,card_en,bank_folder,card_pic,url_tc,url_sc,url_en,air_mile,local_reward,overseas_reward);
-
 __________
 Import HKFI Database
 
