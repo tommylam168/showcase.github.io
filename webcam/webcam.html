@@ -1,0 +1,37 @@
+<body>
+<h1>Webcam Capture
+<button id='startBtn'>Start Webcam</button>
+<button id='captureBtn' disabled>Capture Photo</button>
+</h1>
+<div><video id='video' autoplay playsinline></video></div>
+<div><canvas id='canvas'></canvas></div>
+<div><img id='photo'></div>
+</body>
+<script>
+const video=document.getElementById('video');
+const canvas=document.getElementById('canvas');
+const photo=document.getElementById('photo');
+const startBtn=document.getElementById('startBtn');
+const captureBtn=document.getElementById('captureBtn');
+
+async function startWebcam(){
+    try{
+		stream=await navigator.mediaDevices.getUserMedia({video:true});
+		video.srcObject=stream;
+		startBtn.disabled=true;
+		captureBtn.disabled=false;
+    } catch(error){
+        console.error('Error accessing webcam:',error);}
+		}
+
+function capturePhoto(){
+    canvas.width=video.videoWidth;
+    canvas.height=video.videoHeight;
+    canvas.getContext('2d').drawImage(video,0,0);
+	photo.src=canvas.toDataURL('image/jpeg');
+    photo.style.display='block';
+	}
+
+startBtn.addEventListener('click',startWebcam);
+captureBtn.addEventListener('click',capturePhoto);
+</script>
