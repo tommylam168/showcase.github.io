@@ -20,7 +20,7 @@ async function startWebcam(){
 		video.srcObject=stream;
 		startBtn.disabled=true;
 		captureBtn.disabled=false;
-    } catch(error){
+    }catch(error){
         console.error('Error accessing webcam:',error);}
 		}
 
