@@ -1,7 +1,7 @@
 # ARXIV
 
 ## Papers
-1508.06576 [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576)
+arXiv:1508.06576 [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576)
 
 
 
@@ -10,4 +10,4 @@
 Hintin 2006 [A fast learning algorithm for deep belief nets](https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf)
 
 ## New Papers
-[Editing Physiological Signals in Videos Using Latent Representations]()
+arXiv:2509.25348 [Editing Physiological Signals in Videos Using Latent Representations](https://arxiv.org/abs/2509.25348)
