@@ -23,19 +23,5 @@ arXiv:2210.03945 [Understanding HTML with Large Language Models](https://arxiv.o
 arXiv:2205.11916 [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916)  
 arXiv:2305.10601 [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/pdf/2305.10601)  
 
-arXiv:
-arXiv:
-arXiv:
-arXiv:
-
-## Last
-<p><a href='https://arxiv.org/abs/2406.00515'>A Survey on Large Language Models for Code Generation</a></p>
-<p><a href='https://arxiv.org/abs/2308.12950'>Code Llama: Open Foundation Models for Code</a></p>
-<p><a href='https://arxiv.org/abs/2407.14044'>ECCO: CanWe Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?</a></p>
-<p><a href='https://arxiv.org/abs/2210.03945'>Understanding HTML with Large Language Models</a></p>
-<p><a href='https://arxiv.org/abs/2205.11916'>Large Language Models are Zero-Shot Reasoners</a></p>
-<p><a href='https://arxiv.org/pdf/2305.10601'>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</a></p>
-<hr>
-<p><a href='https://arxiv.org/abs/2311.05579'>SigScatNet: A Siamese + Scattering based Deep Learning Approach for Signature Forgery Detection and Similarity Assessment</a></p>
-<p><a href='https://arxiv.org/abs/2410.04739v1'>TableRAG: Million-Token Table Understanding with Language Models</a></p>
-<hr>
+arXiv:2311.05579 [SigScatNet: A Siamese + Scattering based Deep Learning Approach for Signature Forgery Detection and Similarity Assessment](https://arxiv.org/abs/2311.05579)
+arXiv:2410.04739v1 [TableRAG: Million-Token Table Understanding with Language Models](https://arxiv.org/abs/2410.04739v1)
