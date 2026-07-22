@@ -17,12 +17,12 @@
 * arXiv:1311.2901 [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901)
 * arXiv:1609.03499 [WaveNet: A Generative Model for Raw Audio](https://arxiv.org/abs/1609.03499)
 
-arXiv:2406.00515 [A Survey on Large Language Models for Code Generation](https://arxiv.org/abs/2406.00515)
-arXiv:2308.12950 [Code Llama: Open Foundation Models for Code](https://arxiv.org/abs/2308.12950)
-arXiv:2407.14044 [ECCO: CanWe Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?](https://arxiv.org/abs/2407.14044)
-arXiv:2210.03945 [Understanding HTML with Large Language Models](https://arxiv.org/abs/2210.03945)
-arXiv:2205.11916 [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916)
-arXiv:2305.10601 [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/pdf/2305.10601)
+arXiv:2406.00515 [A Survey on Large Language Models for Code Generation](https://arxiv.org/abs/2406.00515)  
+arXiv:2308.12950 [Code Llama: Open Foundation Models for Code](https://arxiv.org/abs/2308.12950)  
+arXiv:2407.14044 [ECCO: CanWe Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?](https://arxiv.org/abs/2407.14044)  
+arXiv:2210.03945 [Understanding HTML with Large Language Models](https://arxiv.org/abs/2210.03945)  
+arXiv:2205.11916 [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916)  
+arXiv:2305.10601 [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/pdf/2305.10601)  
 
 arXiv:
 arXiv:
