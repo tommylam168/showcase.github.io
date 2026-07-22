@@ -10,8 +10,8 @@
 * arXiv:2509.25348 [Editing Physiological Signals in Videos Using Latent Representations](https://arxiv.org/abs/2509.25348)
 
 ## To Classify
-* arXiv:2012.14913 [Transformer Feed-Forward Layers Are Key-Value Memories](https://arxiv.org/abs/2012.14913)
-* arXiv:2206.07682 [Emergent Abilities of Large Language Models](https://arxiv.org/pdf/2206.07682)
+- arXiv:2012.14913 [Transformer Feed-Forward Layers Are Key-Value Memories](https://arxiv.org/abs/2012.14913)
+- arXiv:2206.07682 [Emergent Abilities of Large Language Models](https://arxiv.org/pdf/2206.07682)
 
 * arXiv:2304.03442 [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)
 * arXiv:1311.2901 [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901)
