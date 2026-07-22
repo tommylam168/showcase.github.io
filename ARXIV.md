@@ -10,6 +10,23 @@ Hintin:toronto.051108 [A Fast Learning Algorithm for Deep Belief Nets](https://w
 arXiv:2509.25348 [Editing Physiological Signals in Videos Using Latent Representations](https://arxiv.org/abs/2509.25348)
 
 ## Todo List
+arXiv:2012.14913 [Transformer Feed-Forward Layers Are Key-Value Memories](https://arxiv.org/abs/2012.14913)
+arXiv:2206.07682 [Emergent Abilities of Large Language Models](https://arxiv.org/pdf/2206.07682)
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+arXiv:
+
+## Last
 <p><a href='https://arxiv.org/abs/2012.14913'>Transformer Feed-Forward Layers Are Key-Value Memories</a></p>
 <hr>
 <p><a href='https://arxiv.org/pdf/2206.07682'>Emergent Abilities of Large Language Models</a></p>
