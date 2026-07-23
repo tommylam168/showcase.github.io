@@ -1,5 +1,4 @@
 # Viso.ai
-
 * [Vision Transformers (ViT) in Image Recognition](https://viso.ai/deep-learning/vision-transformer-vit)
 * [Deep Neural Network: The 3 Popular Types (MLP, CNN and RNN)](https://viso.ai/deep-learning/deep-neural-network-three-popular-types)
 * [A Guide to YOLOv8 in 2024](https://viso.ai/deep-learning/yolov8-guide)
