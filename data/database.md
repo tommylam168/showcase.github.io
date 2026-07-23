@@ -29,14 +29,13 @@
 * [香港大律師公會 大律師名冊](https://www.hkba.org/zh-hant/Bar-List)
 * [香港律師會 法律界名錄](https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/The-Law-List)
 * [香港律師會 法律服務提供者名單](https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/List-of-Legal-Service-Providers)
-* []()
+* [HK CPA Membership List(Public)](https://www.hkicpa.org.hk/en/Membership/Find-a-CPA/Membership-List)
+* [HK CPA List of Authorized Employers](https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers)
+* [HK CPA List of Authorized Supervisors](https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Supervisors)
 
 
 
-<p>香港大律師公會 大律師名冊<br><a href='https://www.hkba.org/zh-hant/Bar-List' target='_blank'>https://www.hkba.org/zh-hant/Bar-List</a></p>
 
-<p>香港律師會 法律界名錄<br><a href='https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/The-Law-List' target='_blank'>https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/The-Law-List</a></p>
-<p>香港律師會  法律服務提供者名單<br><a href='https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/List-of-Legal-Service-Providers' target='_blank'>https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/List-of-Legal-Service-Providers</a></p>
 
 <p>HK CPA Membership List(Public)<br><a href='https://www.hkicpa.org.hk/en/Membership/Find-a-CPA/Membership-List' target='_blank'>https://www.hkicpa.org.hk/en/Membership/Find-a-CPA/Membership-List</a></p>
 <p>HK CPA List of authorized employers<br><a href='https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers' target='_blank'>https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers</a></p>
