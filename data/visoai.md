@@ -1,4 +1,4 @@
-# Viso.ai
+## Viso.ai
 * [Vision Transformers (ViT) in Image Recognition](https://viso.ai/deep-learning/vision-transformer-vit)
 * [Deep Neural Network: The 3 Popular Types (MLP, CNN and RNN)](https://viso.ai/deep-learning/deep-neural-network-three-popular-types)
 * [A Guide to YOLOv8 in 2024](https://viso.ai/deep-learning/yolov8-guide)
@@ -7,21 +7,22 @@
 * [Everything About Mask R-CNN: A Beginner’s Guide](https://viso.ai/deep-learning/mask-r-cnn)
 * [Segment Anything Model (SAM) – The Complete 2025 Guide](https://viso.ai/deep-learning/segment-anything-model-sam-explained)
 
+## Others
 
-<p>How to build a metaverse<br>
-<a href='https://www.youtube.com/watch?v=Fvs694mWnoY' target='_blank'>https://www.youtube.com/watch?v=Fvs694mWnoY</a></p>
+* [How to build a metaverse](https://www.youtube.com/watch?v=Fvs694mWnoY)
+* [Create a 3D Multi-player Game using THREE.js and SOCKET.io](https://www.youtube.com/watch?v=HDZ8r-WYLEU)
+* [Day15使用Socket.io建立聊天室](https://ithelp.ithome.com.tw/articles/10274507)
+* [Midlibrary](https://midlibrary.io)
+* [Learn Unity](https://learn.unity.com)
+* []()
+* []()
+* []()
+* []()
+* []()
 
-<p>Create a 3D Multi-player Game using THREE.js and SOCKET.io<br>
-<a href='https://www.youtube.com/watch?v=HDZ8r-WYLEU' target='_blank'>https://www.youtube.com/watch?v=HDZ8r-WYLEU</a></p>
 
-<p>Day15 使用 Socket.io 建立聊天室<br>
-<a href='https://ithelp.ithome.com.tw/articles/10274507' target='_blank'>https://ithelp.ithome.com.tw/articles/10274507</a></p>
 
-<p>Midlibrary<br>
-<a href='https://midlibrary.io' target='_blank'>https://midlibrary.io</a></p>
 
-<p>Learn Unity<br>
-<a href='https://learn.unity.com' target='_blank'>https://learn.unity.com</a></p>
 
 <p>copyDog<br>
 <a href='https://metamory.io' target='_blank'>https://www.youtube.com/watch?v=HDZ8r-WYLEU</a></p>
