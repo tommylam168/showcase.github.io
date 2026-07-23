@@ -17,7 +17,7 @@
 * [民政事務總署 香港私人大廈電腦資料庫](https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true)
 * [地政總署 街道名稱 (every Jan and July)](https://data.gov.hk/en)
 
-## 證監會,金管局及港交所
+## 證監會，金管局及港交所
 * [證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)](https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh)
 * [證監會 持牌人及註冊機構的公眾紀錄冊](https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions)
 * [金管局 銀行三級發牌制度](https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system)
@@ -52,8 +52,12 @@
 * [搵地 大廈資料](https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre)
 * [EPRC LTD 免費公眾網](https://public.eprc.com.hk/EprcListPublic/#)
 
+## 其他
 
-
+* [政府統計處](https://www.censtatd.gov.hk/tc)
+* [香港總商會](https://drapp.com.hk/dr_search)
+* [醫神 醫生搜尋](https://drapp.com.hk/dr_search)
+* [興偉聯合證券](http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2)
 
 
 
@@ -75,9 +79,6 @@
 <p>香港總商會<br><a href='https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM' target='_blank'>https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM</a></p>
 
 <p>醫神 醫生搜尋<br><a href='https://drapp.com.hk/dr_search' target='_blank'>https://drapp.com.hk/dr_search</a></p>
-
-<p>2019冠狀病毒病專題網站<br><a href='https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation' target='_blank'>https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation</a></p>
-
 
 
 
