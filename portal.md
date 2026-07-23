@@ -1,6 +1,6 @@
 ## Artwork
 * [Interdimensioanl Portal](./artwork/interdimensioanlPortal.html)
-* [Interdimensional Portal 2](./artwork/interdimensioanlPortal2.html)
+* [Interdimensional Portal 2](artwork/interdimensioanlPortal2.html)
 
 
 <p>Artwork</p>
