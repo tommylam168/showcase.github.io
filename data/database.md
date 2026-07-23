@@ -37,19 +37,11 @@
 
 
 
-<p>HK CPA Membership List(Public)<br><a href='https://www.hkicpa.org.hk/en/Membership/Find-a-CPA/Membership-List' target='_blank'>https://www.hkicpa.org.hk/en/Membership/Find-a-CPA/Membership-List</a></p>
-<p>HK CPA List of authorized employers<br><a href='https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers' target='_blank'>https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers</a></p>
-<p>HK CPA List of authorized supervisors<br><a href='https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Supervisors' target='_blank'>https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Supervisors</a></p>
 
-<hr>
 
-<p>香港總商會<br><a href='https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM' target='_blank'>https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM</a></p>
 
-<p>醫神 醫生搜尋<br><a href='https://drapp.com.hk/dr_search' target='_blank'>https://drapp.com.hk/dr_search</a></p>
 
-<p>2019冠狀病毒病專題網站<br><a href='https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation' target='_blank'>https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation</a></p>
 
-<hr>
 
 <p>保監局 持牌保險中介人登記冊<br><a href='https://iir.ia.org.hk/#/index' target='_blank'>https://iir.ia.org.hk/#/index</a></p>
 
@@ -83,3 +75,21 @@
 <p>興偉聯合證券<br><a href='http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2' target='_blank'>http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2</a></p>
 
 <p>政府統計處<br><a href='https://www.censtatd.gov.hk/tc' target='_blank'>https://www.censtatd.gov.hk/tc</a></p>
+
+
+
+
+
+
+
+<hr>
+
+<p>香港總商會<br><a href='https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM' target='_blank'>https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM</a></p>
+
+<p>醫神 醫生搜尋<br><a href='https://drapp.com.hk/dr_search' target='_blank'>https://drapp.com.hk/dr_search</a></p>
+
+<p>2019冠狀病毒病專題網站<br><a href='https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation' target='_blank'>https://www.coronavirus.gov.hk/chi/index.html#Updates_on_COVID-19_Situation</a></p>
+
+
+
+
