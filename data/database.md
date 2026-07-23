@@ -17,13 +17,17 @@
 * [民政事務總署 香港私人大廈電腦資料庫](https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true)
 * [地政總署 街道名稱 (every Jan and July)](https://data.gov.hk/en)
 
-## 證監會及金管局
+## 證監會,金管局及港交所
 * [證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)](https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh)
 * [證監會 持牌人及註冊機構的公眾紀錄冊](https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions)
 * [金管局 銀行三級發牌制度](https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system)
 * [金管局 紀錄冊及一覽表](https://www.hkma.gov.hk/chi/regulatory-resources/registers)
 * [金管局 認可機構及本地代表辦事處紀錄冊](https://vpr.hkma.gov.hk/chi/regulatory-resources/registers/register-of-ais-and-lros/?lang=chi)
 * [金管局 金融數據月報](https://www.hkma.gov.hk/chi/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin)
+* [港交所 證券名單](https://www.hkex.com.hk/Services/Trading/Securities/Securities-Lists?sc_lang=zh-HK)
+* [港交所 新上市資料](https://www2.hkexnews.hk/New-Listings/New-Listing-Information/Main-Board?sc_lang=zh-HK)
+* [港交所 滬港通及深港通](https://www.hkex.com.hk/Mutual-Market/Stock-Connect?sc_lang=zh-HK)
+* [港交所 GEM](https://www.hkex.com.hk/Join-Our-Market/IPO/GEM?sc_lang=zh-hk)
 
 ## 律師及CPA
 * [香港大律師公會 大律師名冊](https://www.hkba.org/zh-hant/Bar-List)
@@ -42,7 +46,6 @@
 * [Professional Insurance Brokers Association](http://www.piba.org.hk)
 
 ## 地產
-
 * [科一物業 二按、三按、四按紀錄搜尋](https://www.cpm.com.hk/secondmor.php)
 * [科一物業  二按、三按、四按紀錄搜尋 詳情](https://www.cpm.com.hk/secondmor_detail.php?pid=6209530&cid=957ab6204963875881ab08aeebfe084a)
 * [香港地產代理商總會 會員名單](http://hkreaga.org/member-search)
@@ -53,24 +56,9 @@
 
 
 
-<p>科一物業 二按、三按、四按紀錄搜尋<br><a href='https://www.cpm.com.hk/secondmor.php' target='_blank'>https://www.cpm.com.hk/secondmor.php</a></p>
-
-<p>科一物業  二按、三按、四按紀錄搜尋 詳情<br><a href='https://www.cpm.com.hk/secondmor_detail.php?pid=6209530&cid=957ab6204963875881ab08aeebfe084a' target='_blank'>https://www.cpm.com.hk/secondmor_detail.php?pid=6209530&cid=957ab6204963875881ab08aeebfe084a</a></p>
-
-<p>香港地產代理商總會 會員名單<br><a href='http://hkreaga.org/member-search' target='_blank'>http://hkreaga.org/member-search</a></p>
-
-<p>搵地 大廈資料<br><a href='https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre' target='_blank'>https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre</a></p>
-
-<p>EPRC LTD 免費公眾網<br><a href='https://public.eprc.com.hk/EprcListPublic/#' target='_blank'>https://public.eprc.com.hk/EprcListPublic/#</a></p>
 
 
 
-
-
-<p>港交所 證券名單<br><a href='https://www.hkex.com.hk/Services/Trading/Securities/Securities-Lists?sc_lang=zh-HK' target='_blank'>https://www.hkex.com.hk/Services/Trading/Securities/Securities-Lists?sc_lang=zh-HK</a></p>
-<p>港交所 新上市資料<br><a href='https://www2.hkexnews.hk/New-Listings/New-Listing-Information/Main-Board?sc_lang=zh-HK' target='_blank'>https://www2.hkexnews.hk/New-Listings/New-Listing-Information/Main-Board?sc_lang=zh-HK</a></p>
-<p>港交所 滬港通及深港通<br><a href='https://www.hkex.com.hk/Mutual-Market/Stock-Connect?sc_lang=zh-HK' target='_blank'>https://www.hkex.com.hk/Mutual-Market/Stock-Connect?sc_lang=zh-HK</a></p>
-<p>港交所 GEM<br><a href='https://www.hkex.com.hk/Join-Our-Market/IPO/GEM?sc_lang=zh-hk' target='_blank'>https://www.hkex.com.hk/Join-Our-Market/IPO/GEM?sc_lang=zh-hk</a></p>
 
 <p>興偉聯合證券<br><a href='http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2' target='_blank'>http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2</a></p>
 
