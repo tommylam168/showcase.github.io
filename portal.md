@@ -3,10 +3,10 @@
 * [interdimensional Portal 2](artwork/interdimensionalPortal2.html)
 
 ## Common Showcase
-* [Web Worker](webWorker.html)
-* [Geolocation](geolocation.html)
-* [WebRTC Showcase](webcam/webcam.html)
-* [WebCam - Remove BG](webcam/removeBG.html)
+* [Web Worker](showcase/webWorker.html)
+* [Geolocation](showcase/geolocation.html)
+* [WebRTC Showcase](showcase/webcam.html)
+* [WebCam - Remove BG](showcase/removeBG.html)
 
 ## TensorFlow.js Showcase
 <hr>
