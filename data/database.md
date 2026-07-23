@@ -1,6 +1,6 @@
 ## 公司註冊處
 
-* [新註冊及已更改名稱的公司名單 (以一周計)](https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm)
+* [新註冊及已更改名稱的公司名單 (以一周計)](https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm){target="_blank"}
 * []()
 * []()
 * []()
