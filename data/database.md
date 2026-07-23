@@ -10,8 +10,6 @@
 ## 運輸及房屋局
 * [房屋局 刊物](https://www.hb.gov.hk/tc/publications/housing/index.html)
 * [房屋局 房屋統計數字2023](https://www.hb.gov.hk/tc/publications/housing/HIF2023.pdf)
-
-
 * [房屋署 刊物與統計數字](https://www.housingauthority.gov.hk/tc/about-us/publications-and-statistics/index.html)
 * [房屋委員會公共租住房屋人口及住戶報告](https://www.housingauthority.gov.hk/tc/common/pdf/about-us/publications-and-statistics/PopulationReport.pdf)
 * [差餉物業估價署 香港物業報告](https://www.rvd.gov.hk/tc/publications/hkpr.html)
@@ -19,17 +17,6 @@
 * [民政事務總署 香港私人大廈電腦資料庫](https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true)
 * [地政總署 街道名稱 (every Jan and July)](https://data.gov.hk/en)
 
-<p>房屋署 刊物與統計數字<br><a href='https://www.housingauthority.gov.hk/tc/about-us/publications-and-statistics/index.html' target='_blank'>https://www.housingauthority.gov.hk/tc/about-us/publications-and-statistics/index.html</a></p>
-
-<p>房屋委員會公共租住房屋人口及住戶報告<br><a href='https://www.housingauthority.gov.hk/tc/common/pdf/about-us/publications-and-statistics/PopulationReport.pdf' target='_blank'>https://www.housingauthority.gov.hk/tc/common/pdf/about-us/publications-and-statistics/PopulationReport.pdf</a></p>
-
-<p>差餉物業估價署 香港物業報告<br><a href='https://www.rvd.gov.hk/tc/publications/hkpr.html' target='_blank'>https://www.rvd.gov.hk/tc/publications/hkpr.html</a></p>
-
-<p>差餉物業估價署 刊物<br><a href='https://www.rvd.gov.hk/tc/publications/index.html' target='_blank'>https://www.rvd.gov.hk/tc/publications/index.html</a></p>
-
-<p>民政事務總署 香港私人大廈電腦資料庫<br><a href='https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true' target='_blank'>https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true</a></p>
-
-<p>地政總署 街道名稱 (every Jan and July)<br><a href='https://data.gov.hk/en' target='_blank'>https://data.gov.hk/en</a></p>
 
 <hr>
 
