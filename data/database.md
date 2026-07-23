@@ -4,20 +4,15 @@
 * [公司名稱被公司註冊處處長根據《公司條例》以一個新名稱取代的公司名單](https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm)
 * [放債人登記冊的電子查冊服務](https://www.cr.gov.hk/tc/services/money-lenders/search/licensee-search.htm)
 * [持牌放債人為批出貸款而委任的第三方名單](https://www.cr.gov.hk/tc/services/money-lenders/search/third-parties-search.htm)
-
-## 業登記號碼
 * [查詢商業登記號碼](https://www.gov.hk/tc/residents/taxes/etax/services/brn_enquiry.htm)
+* [信託或公司服務持牌人登記冊](https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=ALL)
+
+## 運輸及房屋局
+* [房屋局 刊物](https://www.hb.gov.hk/tc/publications/housing/index.html)
+* [房屋局 房屋統計數字2023](https://www.hb.gov.hk/tc/publications/housing/HIF2023.pdf)
 
 
 
-<p>公司註冊處 信託及公司服務提供者註冊辦事處</p>
-<p>信託或公司服務持牌人登記冊<br><a href='https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=ALL' target='_blank'>https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=ALL</a></p>
-<hr>
-
-<p>運輸及房屋局</p>
-<p>房屋局 刊物<br><a href='https://www.hb.gov.hk/tc/publications/housing/index.html' target='_blank'>https://www.hb.gov.hk/tc/publications/housing/index.html</a></p>
-<p>房屋局 房屋統計數字2023<br><a href='https://www.hb.gov.hk/tc/publications/housing/HIF2023.pdf' target='_blank'>https://www.hb.gov.hk/tc/publications/housing/HIF2023.pdf</a></p>
-<hr>
 
 <p>房屋署 刊物與統計數字<br><a href='https://www.housingauthority.gov.hk/tc/about-us/publications-and-statistics/index.html' target='_blank'>https://www.housingauthority.gov.hk/tc/about-us/publications-and-statistics/index.html</a></p>
 
