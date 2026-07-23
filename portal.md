@@ -2,20 +2,13 @@
 * [interdimensional Portal](./artwork/interdimensionalPortal.html)
 * [interdimensional Portal 2](artwork/interdimensionalPortal2.html)
 
+## Common Showcase
+* [Web Worker](webWorker.html)
+* [Geolocation](geolocation.html)
+* [WebRTC Showcase](webcam/webcam.html)
+* [WebCam - Remove BG](webcam/removeBG.html)
 
-<p>Artwork</p>
-<p><a href='artwork/drStrange.html'>Dr. Strange</a></p>
-<p><a href=''></a></p>
-<hr>
-<p>Common Showcase</p>
-<p><a href='webWorker.html'>Web Worker</a></p>
-<p><a href='geolocation.html'>Geolocation</a></p>
-<p><a href=''></a></p>
-<hr>
-<p>WebRTC Showcase</p>
-<p><a href='webcam/webcam.html'>WebCam</a></p>
-<p><a href='webcam/removeBG.html'>Remove BG</a></p>
-<p><a href=''></a></p>
+## TensorFlow.js Showcase
 <hr>
 <p>TensorFlow.js Showcase</p>
 <p><a href='tensorflowJS/carHouse.html'>Car and House</a></p>
