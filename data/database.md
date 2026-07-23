@@ -1,10 +1,10 @@
 ## 公司註冊處
 
-* [新註冊及已更改名稱的公司名單 (以一周計)](https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm){target="_blank"}
-* []()
-* []()
-* []()
-* []()
+* [新註冊及已更改名稱的公司名單 (以一周計)](https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm)
+* [未有遵從公司註冊處處長根據《公司條例》發出的更改公司名稱指示的公司名單](https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm)
+* [公司名稱被公司註冊處處長根據《公司條例》以一個新名稱取代的公司名單](https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm)
+* [放債人登記冊的電子查冊服務](https://www.cr.gov.hk/tc/services/money-lenders/search/licensee-search.htm)
+* [持牌放債人為批出貸款而委任的第三方名單](https://www.cr.gov.hk/tc/services/money-lenders/search/third-parties-search.htm)
 
 <p>公司註冊處</p>
 <p>新註冊及已更改名稱的公司名單 (以一周計)<br><a href='https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm' target='_blank'>https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm</a></p>
