@@ -17,8 +17,14 @@
 * [民政事務總署 香港私人大廈電腦資料庫](https://bmis2.buildingmgt.gov.hk/bd_hadbiex/content/searchbuilding/building_search.jsf?renderedValue=true)
 * [地政總署 街道名稱 (every Jan and July)](https://data.gov.hk/en)
 
+## 證監會及金管局
 
-<hr>
+* [證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)](https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh)
+* [證監會 持牌人及註冊機構的公眾紀錄冊](https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions)
+* []()
+* []()
+* []()
+* []()
 
 <p>證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)<br><a href='https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh' target='_blank'>https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh</a></p>
 <p>證監會 持牌人及註冊機構的公眾紀錄冊<br><a href='https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions' target='_blank'>https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions</a></p>
