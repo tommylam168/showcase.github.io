@@ -14,33 +14,24 @@
 * [Day15使用Socket.io建立聊天室](https://ithelp.ithome.com.tw/articles/10274507)
 * [Midlibrary](https://midlibrary.io)
 * [Learn Unity](https://learn.unity.com)
-* []()
-* []()
-* []()
-* []()
-* []()
+* [copyDog](https://metamory.io)
+* [Capturing Webcam Images using HTML and JavaScript](https://medium.com/@arpit23sh/capturing-webcam-images-using-html-and-javascript-9b8896ef1705)
+* [PASCAL Visual Object Classes](http://host.robots.ox.ac.uk/pascal/VOC)
+* [swiperjs](https://swiperjs.com)
+* [SP-Studio](https://www.sp-studio.de)
+* [ZingTouch](https://zingchart.github.io/zingtouch)
+* [interactjs](https://interactjs.io)
+* [hammer.js](https://hammerjs.github.io)
+* [Access-OneDrive-via-Microsoft-Graph-Python](https://github.com/pranabdas/Access-OneDrive-via-Microsoft-Graph-Python/blob/main/Azure_app_signup_step_by_step.md)
+
+## Database
+* [Kaggle](https://www.kaggle.com/datasets)
+* [kdnuggets](https://www.kdnuggets.com/datasets/index.html)
+* [ics.uci](https://archive.ics.uci.edu)
+* [Cocodataset](https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoDemo.ipynb)
 
 
 
-
-
-<p>copyDog<br>
-<a href='https://metamory.io' target='_blank'>https://www.youtube.com/watch?v=HDZ8r-WYLEU</a></p>
-
-<p>Kaggle<br>
-<a href='https://www.kaggle.com' target='_blank'>https://www.kaggle.com</a></p>
-
-<p>Dataset<br>
-<a href='https://www.kdnuggets.com/datasets/index.html' target='_blank'>https://www.kdnuggets.com/datasets/index.html</a></p>
-<a href='https://www.kaggle.com/datasets' target='_blank'>https://www.kaggle.com/datasets</a></p>
-<a href='https://archive.ics.uci.edu' target='_blank'>https://archive.ics.uci.edu</a></p>
-<a href='https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoDemo.ipynb' target='_blank'>https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoDemo.ipynb</a></p>
-
-<p>Capturing Webcam Images using HTML and JavaScript<br>
-<a href='https://medium.com/@arpit23sh/capturing-webcam-images-using-html-and-javascript-9b8896ef1705' target='_blank'>https://medium.com/@arpit23sh/capturing-webcam-images-using-html-and-javascript-9b8896ef1705</a></p>
-
-<p>PASCAL Visual Object Classes<br>
-<a href='' target='_blank'>http://host.robots.ox.ac.uk/pascal/VOC</a></p>
 
 <p>swiperjs<br><a href='https://swiperjs.com' target='_blank'>https://swiperjs.com</a></p>
 
