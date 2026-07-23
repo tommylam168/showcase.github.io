@@ -9,6 +9,15 @@
 * [WebCam - Remove BG](showcase/removeBG.html)
 
 ## TensorFlow.js Showcase
+
+* [Car and House](tensorflowJS/carHouse.html)
+* [Fit a curve to 2D Data](tensorflowJS/fitACurveTo2DData.html)
+* [Handwritten Digit Recognition with CNN](tensorflowJS/handwrittenDigitRecognitionWithCNN.html)
+* [Transfer Learning Image Classifier](tensorflowJS/transferLearningImageClassifier.html)
+* [Transfer Learning Audio Recognizer](tensorflowJS/transferLearningAudioRecognizer.html)
+* [MNIST CNN Transfer Learning](tensorflowJS/mnistCNNTransferLearning.html)
+
+
 <hr>
 <p>TensorFlow.js Showcase</p>
 <p><a href='tensorflowJS/carHouse.html'>Car and House</a></p>
@@ -18,6 +27,9 @@
 <p><a href='tensorflowJS/transferLearningAudioRecognizer.html'>Transfer Learning Audio Recognizer</a></p>
 <p><a href='tensorflowJS/mnistCNNTransferLearning.html'>MNIST CNN Transfer Learning</a></p>
 <p><a href=''></a></p>
+
+
+
 <hr>
 <p><a href='https://medium.com/@supersjgk/building-a-live-streaming-app-using-flask-opencv-and-webrtc-8cc8b521fa44'>Building a Live Streaming App using Flask, OpenCV and WebRTC</a></p>
 <p><a href=''></a></p>
