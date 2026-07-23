@@ -5,15 +5,10 @@
 * [放債人登記冊的電子查冊服務](https://www.cr.gov.hk/tc/services/money-lenders/search/licensee-search.htm)
 * [持牌放債人為批出貸款而委任的第三方名單](https://www.cr.gov.hk/tc/services/money-lenders/search/third-parties-search.htm)
 
-<p>公司註冊處</p>
-<p>新註冊及已更改名稱的公司名單 (以一周計)<br><a href='https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm' target='_blank'>https://www.cr.gov.hk/tc/publication/fact-stat/statistics/registered-companies.htm</a></p>
-<p>未有遵從公司註冊處處長根據《公司條例》發出的更改公司名稱指示的公司名單<br><a href='https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm' target='_blank'>https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm</a></p>
-<p>公司名稱被公司註冊處處長根據《公司條例》以一個新名稱取代的公司名單<br><a href='https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm' target='_blank'>https://www.cr.gov.hk/tc/publication/fact-stat/statistics.htm</a></p>
-<p>放債人登記冊的電子查冊服務<br><a href='https://www.cr.gov.hk/tc/services/money-lenders/search/licensee-search.htm' target='_blank'>https://www.cr.gov.hk/tc/services/money-lenders/search/licensee-search.htm</a></p>
-<p>持牌放債人為批出貸款而委任的第三方名單<br><a href='https://www.cr.gov.hk/tc/services/money-lenders/search/third-parties-search.htm' target='_blank'>https://www.cr.gov.hk/tc/services/money-lenders/search/third-parties-search.htm</a></p>
-<hr>
+## 業登記號碼
+* [查詢商業登記號碼](https://www.gov.hk/tc/residents/taxes/etax/services/brn_enquiry.htm)
 
-<p>查詢商業登記號碼<br><a href='https://www.gov.hk/tc/residents/taxes/etax/services/brn_enquiry.htm' target='_blank'>https://www.gov.hk/tc/residents/taxes/etax/services/brn_enquiry.htm</p>
+
 
 <p>公司註冊處 信託及公司服務提供者註冊辦事處</p>
 <p>信託或公司服務持牌人登記冊<br><a href='https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=ALL' target='_blank'>https://www.tcsp.cr.gov.hk/tcspls/search/public-search?k=ALL</a></p>
