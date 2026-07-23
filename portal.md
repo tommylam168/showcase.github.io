@@ -1,10 +1,8 @@
-<p>Reference</p>
-<p><a href='data/database.html'>Database</a></p>
-<p><a href='data/toDo.html'>To Do</a></p>
-<p><a href='data/visoai.html'>Visoai</a></p>
-<p><a href='data/ARXIV.html'>ARXIV</a></p>
-<p><a href=''></a></p>
-<hr>
+## Artwork
+* [Interdimensioanl Portal](./artwork/interdimensioanlPortal.html)
+* [Interdimensional Portal 2](./artwork/interdimensioanlPortal2.html)
+
+
 <p>Artwork</p>
 <p><a href='artwork/drStrange.html'>Dr. Strange</a></p>
 <p><a href=''></a></p>
