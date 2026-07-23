@@ -18,7 +18,6 @@
 * [地政總署 街道名稱 (every Jan and July)](https://data.gov.hk/en)
 
 ## 證監會及金管局
-
 * [證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)](https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh)
 * [證監會 持牌人及註冊機構的公眾紀錄冊](https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions)
 * [金管局 銀行三級發牌制度](https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system)
@@ -26,12 +25,13 @@
 * [金管局 認可機構及本地代表辦事處紀錄冊](https://vpr.hkma.gov.hk/chi/regulatory-resources/registers/register-of-ais-and-lros/?lang=chi)
 * [金管局 金融數據月報](https://www.hkma.gov.hk/chi/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin)
 
+## 律師及CPA
+* [香港大律師公會 大律師名冊](https://www.hkba.org/zh-hant/Bar-List)
+* [香港律師會 法律界名錄](https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/The-Law-List)
+* [香港律師會 法律服務提供者名單](https://www.hklawsoc.org.hk/zh-HK/Serve-the-Public/List-of-Legal-Service-Providers)
+* []()
 
-<p>金管局 銀行三級發牌制度<br><a href='https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system' target='_blank'>https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system</a></p>
-<p>金管局 紀錄冊及一覽表<br><a href='https://www.hkma.gov.hk/chi/regulatory-resources/registers' target='_blank'>https://www.hkma.gov.hk/chi/regulatory-resources/registers</a></p>
-<p>金管局 認可機構及本地代表辦事處紀錄冊<br><a href='https://vpr.hkma.gov.hk/chi/regulatory-resources/registers/register-of-ais-and-lros/?lang=chi' target='_blank'>https://vpr.hkma.gov.hk/chi/regulatory-resources/registers/register-of-ais-and-lros/?lang=chi</a></p>
-<p>金管局 金融數據月報<br><a href='https://www.hkma.gov.hk/chi/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin' target='_blank'>https://www.hkma.gov.hk/chi/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin</a></p>
-<hr>
+
 
 <p>香港大律師公會 大律師名冊<br><a href='https://www.hkba.org/zh-hant/Bar-List' target='_blank'>https://www.hkba.org/zh-hant/Bar-List</a></p>
 
