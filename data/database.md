@@ -53,32 +53,7 @@
 * [EPRC LTD 免費公眾網](https://public.eprc.com.hk/EprcListPublic/#)
 
 ## 其他
-
 * [政府統計處](https://www.censtatd.gov.hk/tc)
 * [香港總商會](https://drapp.com.hk/dr_search)
 * [醫神 醫生搜尋](https://drapp.com.hk/dr_search)
 * [興偉聯合證券](http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2)
-
-
-
-
-
-
-<p>興偉聯合證券<br><a href='http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2' target='_blank'>http://iportal.infocastfn.com/Hingwai_portal/FinancialTools/HKListedCompany.asp?LangId=2</a></p>
-
-<p>政府統計處<br><a href='https://www.censtatd.gov.hk/tc' target='_blank'>https://www.censtatd.gov.hk/tc</a></p>
-
-
-
-
-
-
-
-<hr>
-
-<p>香港總商會<br><a href='https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM' target='_blank'>https://www.chamber.org.hk/en/membership/directory_hk.aspx?member_cate=HKM</a></p>
-
-<p>醫神 醫生搜尋<br><a href='https://drapp.com.hk/dr_search' target='_blank'>https://drapp.com.hk/dr_search</a></p>
-
-
-
