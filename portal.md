@@ -1,17 +1,23 @@
-## Artwork
-* [interdimensional Portal](./artwork/interdimensionalPortal.html)
-* [interdimensional Portal 2](artwork/interdimensionalPortal2.html)
+<h2>Artwork</h2>
+<ul>
+  <li><a href="artwork/interdimensionalPortal.html">interdimensional Portal</a></li>
+  <li><a href="artwork/interdimensionalPortal2.html">interdimensional Portal 2</a></li>
+</ul>
 
-## Common Showcase
-* [Web Worker](showcase/webWorker.html)
-* [Geolocation](showcase/geolocation.html)
-* [WebRTC Showcase](showcase/webcam.html)
-* [WebCam - Remove BG](showcase/removeBG.html)
+<h2>Common Showcase</h2>
+<ul>
+  <li><a href="showcase/webWorker.html">Web Worker</a></li>
+  <li><a href="showcase/geolocation.html">Geolocation</a></li>
+  <li><a href="showcase/webcam.html">WebRTC Showcase</a></li>
+  <li><a href="showcase/removeBG.html">WebCam - Remove BG</a></li>
+</ul>
 
-## TensorFlow.js Showcase
-* [Car and House](tensorflowJS/carHouse.html)
-* [Fit a curve to 2D Data](tensorflowJS/fitACurveTo2DData.html)
-* [Handwritten Digit Recognition with CNN](tensorflowJS/handwrittenDigitRecognitionWithCNN.html)
-* [Transfer Learning Image Classifier](tensorflowJS/transferLearningImageClassifier.html)
-* [Transfer Learning Audio Recognizer](tensorflowJS/transferLearningAudioRecognizer.html)
-* [MNIST CNN Transfer Learning](tensorflowJS/mnistCNNTransferLearning.html)
+<h2>TensorFlow.js Showcase</h2>
+<ul>
+  <li><a href="tensorflowJS/carHouse.html">Car and House</a></li>
+  <li><a href="tensorflowJS/fitACurveTo2DData.html">Fit a curve to 2D Data</a></li>
+  <li><a href="tensorflowJS/handwrittenDigitRecognitionWithCNN.html">Handwritten Digit Recognition with CNN</a></li>
+  <li><a href="tensorflowJS/transferLearningImageClassifier.html">Transfer Learning Image Classifier</a></li>
+  <li><a href="tensorflowJS/transferLearningAudioRecognizer.html">Transfer Learning Audio Recognizer</a></li>
+  <li><a href="tensorflowJS/mnistCNNTransferLearning.html">MNIST CNN Transfer Learning</a></li>
+</ul>
