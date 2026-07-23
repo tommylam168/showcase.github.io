@@ -34,8 +34,6 @@
 * [HK CPA List of Authorized Supervisors](https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Supervisors)
 
 ## 保險業
-
-
 * [保監局 持牌保險中介人登記冊](https://iir.ia.org.hk/#/index)
 * [保監局 保險公司資料](https://www.ia.org.hk/tc/infocenter/statistics/particulars_of_insurers.html)
 * [香港保險業聯會 會員名冊](https://www.hkfi.org.hk/member-companies)
@@ -43,27 +41,17 @@
 * [香港保險顧問聯會](https://www.hkcib.org/members)
 * [Professional Insurance Brokers Association](http://www.piba.org.hk)
 
+## 地產
+
+* [科一物業 二按、三按、四按紀錄搜尋](https://www.cpm.com.hk/secondmor.php)
+* [科一物業  二按、三按、四按紀錄搜尋 詳情](https://www.cpm.com.hk/secondmor_detail.php?pid=6209530&cid=957ab6204963875881ab08aeebfe084a)
+* [香港地產代理商總會 會員名單](http://hkreaga.org/member-search)
+* [搵地 大廈資料](https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre)
+* [EPRC LTD 免費公眾網](https://public.eprc.com.hk/EprcListPublic/#)
 
 
 
 
-
-<p>保監局 持牌保險中介人登記冊<br><a href='https://iir.ia.org.hk/#/index' target='_blank'>https://iir.ia.org.hk/#/index</a></p>
-
-<p>保監局 保險公司資料<br><a href='https://www.ia.org.hk/tc/infocenter/statistics/particulars_of_insurers.html' target='_blank'>https://www.ia.org.hk/tc/infocenter/statistics/particulars_of_insurers.html</a></p>
-
-<p>香港保險業聯會 會員名冊<br><a href='https://www.hkfi.org.hk/member-companies' target='_blank'>https://www.hkfi.org.hk/member-companies</a></p>
-
-<p>香港保險顧問聯會 會員名冊<br><a href='https://www.hkcib.org/members' target='_blank'>https://www.hkcib.org/members</a></p>
-
-<p>香港保險顧問聯會<br><a href='https://www.hkcib.org/members' target='_blank'>https://www.hkcib.org/members</a></p>
-
-<p>Professional Insurance Brokers Association<br><a href='http://www.piba.org.hk' target='_blank'>http://www.piba.org.hk</a></p>
-
-
-
-
-<hr>
 
 <p>科一物業 二按、三按、四按紀錄搜尋<br><a href='https://www.cpm.com.hk/secondmor.php' target='_blank'>https://www.cpm.com.hk/secondmor.php</a></p>
 
@@ -74,6 +62,10 @@
 <p>搵地 大廈資料<br><a href='https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre' target='_blank'>https://www.oneday.com.hk/zh_HK/buildings/kennedy-town-centre</a></p>
 
 <p>EPRC LTD 免費公眾網<br><a href='https://public.eprc.com.hk/EprcListPublic/#' target='_blank'>https://public.eprc.com.hk/EprcListPublic/#</a></p>
+
+
+
+
 
 <p>港交所 證券名單<br><a href='https://www.hkex.com.hk/Services/Trading/Securities/Securities-Lists?sc_lang=zh-HK' target='_blank'>https://www.hkex.com.hk/Services/Trading/Securities/Securities-Lists?sc_lang=zh-HK</a></p>
 <p>港交所 新上市資料<br><a href='https://www2.hkexnews.hk/New-Listings/New-Listing-Information/Main-Board?sc_lang=zh-HK' target='_blank'>https://www2.hkexnews.hk/New-Listings/New-Listing-Information/Main-Board?sc_lang=zh-HK</a></p>
