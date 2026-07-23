@@ -33,10 +33,15 @@
 * [HK CPA List of Authorized Employers](https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Employers)
 * [HK CPA List of Authorized Supervisors](https://www.hkicpa.org.hk/en/Become-a-Hong-Kong-CPA/New-QP/Revised-Practical-Experience-Framework/Old-Practical-Experience-Framework/List-of-AE-and-AS/List-of-Authorised-Supervisors)
 
+## 保險業
 
 
-
-
+* [保監局 持牌保險中介人登記冊](https://iir.ia.org.hk/#/index)
+* [保監局 保險公司資料](https://www.ia.org.hk/tc/infocenter/statistics/particulars_of_insurers.html)
+* [香港保險業聯會 會員名冊](https://www.hkfi.org.hk/member-companies)
+* [香港保險顧問聯會 會員名冊](https://www.hkcib.org/members)
+* [香港保險顧問聯會](https://www.hkcib.org/members)
+* [Professional Insurance Brokers Association](http://www.piba.org.hk)
 
 
 
@@ -54,6 +59,9 @@
 <p>香港保險顧問聯會<br><a href='https://www.hkcib.org/members' target='_blank'>https://www.hkcib.org/members</a></p>
 
 <p>Professional Insurance Brokers Association<br><a href='http://www.piba.org.hk' target='_blank'>http://www.piba.org.hk</a></p>
+
+
+
 
 <hr>
 
