@@ -21,13 +21,11 @@
 
 * [證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)](https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh)
 * [證監會 持牌人及註冊機構的公眾紀錄冊](https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions)
-* []()
-* []()
-* []()
-* []()
+* [金管局 銀行三級發牌制度](https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system)
+* [金管局 紀錄冊及一覽表](https://www.hkma.gov.hk/chi/regulatory-resources/registers)
+* [金管局 認可機構及本地代表辦事處紀錄冊](https://vpr.hkma.gov.hk/chi/regulatory-resources/registers/register-of-ais-and-lros/?lang=chi)
+* [金管局 金融數據月報](https://www.hkma.gov.hk/chi/data-publications-and-research/data-and-statistics/monthly-statistical-bulletin)
 
-<p>證監會 持牌人及註冊機構的公眾紀錄冊 (按牌照類別搜尋)<br><a href='https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh' target='_blank'>https://apps.sfc.hk/publicregWeb/searchByRa?locale=zh</a></p>
-<p>證監會 持牌人及註冊機構的公眾紀錄冊<br><a href='https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions' target='_blank'>https://www.sfc.hk/TC/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions</a></p>
 
 <p>金管局 銀行三級發牌制度<br><a href='https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system' target='_blank'>https://www.hkma.gov.hk/chi/key-functions/banking/banking-regulatory-and-supervisory-regime/the-three-tier-banking-system</a></p>
 <p>金管局 紀錄冊及一覽表<br><a href='https://www.hkma.gov.hk/chi/regulatory-resources/registers' target='_blank'>https://www.hkma.gov.hk/chi/regulatory-resources/registers</a></p>
