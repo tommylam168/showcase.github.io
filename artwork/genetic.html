@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://unpkg.com/d3-3d/build/d3-3d.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<body>
+<svg width="1600" height="900"></svg>
+<style type="text/css">
+    /*
+button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+*/
+.legend {
+            transform: none !important;
+        }
+.legendLabels {
+  transform: rotate(0);
+}
+.colorScalelegendLabels {
+  transform: rotate(0);
+}
+.legendRects {
+  transform: rotate(0);
+}
+</style>
+<h1>log10</h1>
+<button>update</button>
+<script>
+    // X belongs to catagory, y belongs to value, z belongs to time
+    //origin refers to the center of the graph
+    //scale refers to the size of the graph
+    //var origin = [200, 400]
+    var origin = [200,400],  scale = 40 , scatter = [], yLine = [],xlabel=[], zlabel=[],period=[], zLine=[],xGrid = [], weekday2 = [],beta = 0, alpha = 0, width=10,height=10,margin=10, key = function(d){ return d.id; }, startAngle =150.3;
+    var svg    = d3.select('svg').call(d3.drag().on('drag', dragged).on('start', dragStart).on('end', dragEnd)).append('g');
+    /*svg.append("text")
+        .attr("class", "x-label")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(" + (width/2) + " ," + (height) + ")")
+        .text("X-axis Label");*/
+    var color  = d3.scaleOrdinal(d3.schemeCategory20);
+    var mx, my, mouseX, mouseY;
+    //grid3d is the grid (格仔)that is drawn on the graph
+    var grid3d = d3._3d()
+        //.shape("SURFACE",16), 16 refers to the number of values in x (16 catagory)
+        .shape('SURFACE',11)
+        //origin refers to the starting position for the grid
+        .origin(origin)
+        ///rotateY and rotateX refers to the starting angle of the grid
+        .rotateY( startAngle)
+        .rotateX(-startAngle)
+        //Scale refers to the size of the grid
+        .scale(scale);
+    // point3d refers to the points that are drawn on the graph
+
+
+    var point3d = d3._3d()
+        .x(function(d){ return d.x; })
+        .y(function(d){ return d.y; })
+        .z(function(d){ return d.z; })
+        // xyz refers to the corrdinate of the points
+        .origin(origin)
+        .rotateY( startAngle)
+        .rotateX(-startAngle)
+        .scale(scale);
+    // yScale3d refers to the y-axis that is drawn on the graph
+    var yScale3d = d3._3d()
+        .shape('LINE_STRIP')
+        // Possible shape: POINT, LINE, LINE_STRIP, TRIANGLE, PLANE, GRID, SURFACE, CUBE
+        .origin(origin)
+        .rotateY( startAngle)
+        .rotateX(-startAngle)
+        .scale(scale);
+
+    var xScale3d = d3._3d()
+        .shape('LINE_STRIP')
+        // Possible shape: POINT, LINE, LINE_STRIP, TRIANGLE, PLANE, GRID, SURFACE, CUBE
+        .origin(origin)
+        .rotateY( startAngle)
+        .rotateX(-startAngle)
+        .scale(scale);
+
+    var zScale3d = d3._3d()
+        .shape('LINE_STRIP')
+        // Possible shape: POINT, LINE, LINE_STRIP, TRIANGLE, PLANE, GRID, SURFACE, CUBE
+        .origin(origin)
+        .rotateY( startAngle)
+        .rotateX(-startAngle)
+        .scale(scale);    
+    function processData(data, tt){
+        /* ----------- GRID ----------- */
+        //data[0] refers to the data of grid
+        var xGrid = svg.selectAll('path.grid').data(data[0], key);
+        xGrid
+            .enter()
+            .append('path')
+            .attr('class', '_3d grid')
+            .merge(xGrid)
+            .attr('stroke', 'black')
+            .attr('stroke-width', 0.18)
+            .attr('fill', function(d){ return d.ccw ? 'lightgrey' : '#717171'; })
+            .attr('fill-opacity', 0.2)
+            .attr('d', grid3d.draw);
+
+        xGrid.exit().remove();
+
+        /* ----------- POINTS ----------- */
+        //data[1] refers to the data of points
+        var points = svg.selectAll('circle').data(data[1], key);
+        points
+            .enter()
+            .append('circle')
+            .attr('class', '_3d')
+            .attr('opacity', 0)
+            //Refer to the current point location
+            .attr('cx', posPointX)
+            .attr('cy', posPointY)
+            .merge(points)
+            //Delay for updating the new position of the points
+            .transition().duration(tt)
+            //r refers to the radius of the points
+            .attr('r', 3)
+            //Stroke refers to the edging color of the points(Black)
+            .attr('stroke', function(d){
+            if (d.c === 1) {
+                return 'red';
+            } else if (d.c === 2) {
+                return 'blue';
+            } else if (d.c === 3) {
+                return 'green';
+            } else if (d.c === 4) {
+                return 'yellow';
+            } else if (d.c === 5) {
+                return 'orange';
+            } else if (d.c === 6) {
+                return 'purple';
+            } else if (d.c === 7) {
+                return 'pink';
+            } else if (d.c === 8) {
+                return 'brown';
+            } else if (d.c === 9) {
+                return 'black';
+            } else if (d.c === 10) {
+                return 'gray';
+            } else if (d.c === 11) {
+                return 'deepskyblue';
+            } else if (d.c === 12) {
+                return 'darkorange';
+            } else if (d.c === 13) {
+                return 'crimson';
+            } else if (d.c === 14) {
+                return 'darkblue';
+            } else if (d.c === 15) {
+                return 'darkkhaki';
+            } else if (d.c === 16) {
+                return 'darkred';    
+            } else {
+                return d3.color(color(d.id)).darker(3);
+            }
+        })
+            //.attr('stroke', function(d){ return d3.color(color(d.id)).darker(3); })
+            
+            //Fill refers to the color of the points
+            .attr('fill', function(d){
+                if (d.c === 1) {
+                return 'red';
+            } else if (d.c === 2) {
+                return 'blue';
+            } else if (d.c === 3) {
+                return 'green';
+            } else if (d.c === 4) {
+                return 'yellow';
+            } else if (d.c === 5) {
+                return 'orange';
+            } else if (d.c === 6) {
+                return 'purple';
+            } else if (d.c === 7) {
+                return 'pink';
+            } else if (d.c === 8) {
+                return 'brown';
+            } else if (d.c === 9) {
+                return 'black';
+            } else if (d.c === 10) {
+                return 'gray';
+            } else if (d.c === 11) {
+                return 'deepskyblue';
+            } else if (d.c === 12) {
+                return 'darkorange';
+            } else if (d.c === 13) {
+                return 'crimson';
+            } else if (d.c === 14) {
+                return 'darkblue';
+            } else if (d.c === 15) {
+                return 'darkkhaki';
+            } else if (d.c === 16) {
+                return 'darkred';    
+            } else {
+                return d3.color(color(d.id)).darker(3);
+            }
+        })
+            .attr('opacity', 1)
+            .attr('cx', posPointX)
+            .attr('cy', posPointY);
+
+        points.exit().remove();
+        /* ----------- y-Scale ----------- */
+        //data[2] refers to the data of y-axis
+        //y-Scale refers to the Stright Line of the y-axis
+        var yScale = svg.selectAll('path.yScale').data(data[2]);
+            yScale
+                .enter()
+                .append('path')
+                .attr('class', '_3d yScale')
+                .merge(yScale)
+                .attr('stroke', 'black')
+                //Stroke-width refers to the width of the y axis
+                .attr('stroke-width', 0.3)
+                //Using the function yScale3d([x, -d, z]).draw to draw the y-axis
+                .attr('d', yScale3d.draw);
+                
+        yScale.exit().remove();
+
+        //data[2][0] refers to the y value of the data
+        //yText refers to the text on the y-axis (1,2,3...)
+        var yText = svg.selectAll('text.yText').data(data[2][0]);
+        yText
+            .enter()
+            .append('text')
+            .attr('class', '_3d yText')
+            //location for y-text
+            .attr('dx', '0.3em')
+            .merge(yText)
+            .each(function(d){
+                d.centroid = {x: d.rotated.x, y: d.rotated.y, z: d.rotated.z};
+            })
+            // Function is used to find the centroid of the x,y,z after doing the dragging
+            .attr('x', function(d){ return d.projected.x; })
+            .attr('y', function(d){ return d.projected.y; })
+            
+            // .text is used to set the y-axis value, like 1,2,3,4...
+            //.text(function(d){ return d[1] <= 0 ? Math.log10(d[1]*-1) : ''; });
+            .text(function(d){ return d[1] <= 0 ? d[1]*-1 : ''; });
+        yText.exit().remove();
+
+        d3.selectAll('._3d').sort(d3._3d().sort);
+
+        var zScale = svg.selectAll('path.zScale').data(data[3]);
+            zScale
+                .enter()
+                .append('path')
+                .attr('class', '_3d zScale')
+                .merge(zScale)
+                .attr('stroke', 'black')
+                //Stroke-width refers to the width of the y axis
+                .attr('stroke-width', 0.3)
+                //Using the function yScale3d([x, -d, z]).draw to draw the y-axis
+                .attr('d', zScale3d.draw);
+                
+        zScale.exit().remove();
+
+        var zText = svg.selectAll('text.zText').data(data[3][0]);
+        zText
+            .enter()
+            .append('text')
+            .attr('class', '_3d zText')
+            //location for y-text
+            .attr('dx', '0.3em')
+            .merge(zText)
+            .each(function(d){
+                d.centroid = {x: d.rotated.x, y: d.rotated.y, z: d.rotated.z};
+            })
+            // Function is used to find the centroid of the x,y,z after doing the dragging
+            .attr('x', function(d){ return d.projected.x; })
+            .attr('y', function(d){ return d.projected.y; })
+            // .text is used to set the y-axis value, like 1,2,3,4...
+            //.text(function(d){ return d[1] <= 0 ? Math.log10(d[1]*-1) : ''; });
+            .text(function(d){ return d[3]  });
+        zText.exit().remove();d3.selectAll('._3d').sort(d3._3d().sort);
+        var xScale = svg.selectAll('path.xScale').data(data[4]);
+            xScale
+                .enter()
+                .append('path')
+                .attr('class', '_3d xScale')
+                .merge(xScale)
+                .attr('stroke', 'black')
+                //Stroke-width refers to the width of the y axis
+                .attr('stroke-width', 0.3)
+                .attr('d', xScale3d.draw);
+                
+        xScale.exit().remove();
+
+        var xText = svg.selectAll('text.xText').data(data[4][0]);
+                xText
+                    .enter()
+                    .append('text')
+                    .attr('class', '_3d xText')
+                    .attr('dz', '0.3em')
+                    .merge(xText)
+                    .each(function(d){
+                        d.centroid = {x: d.rotated.x, y: d.rotated.y, z: d.rotated.z};
+                    })
+                    // Function is used to find the centroid of the x,y,z after doing the dragging
+                    .attr('x', function(d){ return d.projected.x; })
+                    .attr('y', function(d){ return d.projected.y; })
+                    // .text is used to set the y-axis value, like 1,2,3,4...
+                    //.text(function(d){ return d[1] <= 0 ? Math.log10(d[1]*-1) : ''; });
+                    .text(function(d){ return d[3]});
+                xText.exit().remove();d3.selectAll('._3d').sort(d3._3d().sort);
+    var legendCreated = false;
+    
+    }
+
+    function createLegend() {
+        var legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(0," + (height - 100) + ")");
+                var colorMap = {
+                        1: 'red',
+                        2: 'blue',
+                        3: 'green',
+                        4: 'yellow',
+                        5: 'orange',
+                        6: 'purple',
+                        7: 'pink',
+                        8: 'brown',
+                        9: 'black',
+                        10: 'gray',
+                        11: 'deepskyblue',
+                        12: 'darkorange',
+                        13: 'crimson',
+                        14: 'darkblue',
+                        15: 'darkkhaki',
+                        16: 'darkred'
+                        };
+
+            // Define the color scale
+            var colorScale = d3.scaleOrdinal()
+                .domain(Object.keys(colorMap))
+                .range(Object.values(colorMap));
+
+            // Add legend elements
+            var legendRects = legend.selectAll("rect")
+                .data(colorScale.domain())
+                .enter()
+                .append("rect")
+                .attr("x", 730)
+                .attr("y", function(d, i) { return i * 20; })
+                .attr("width", 5)
+                .attr("height", 5)
+                .style("fill", colorScale);
+                var legend_name = ['Financial & Insurance','Transportation','Entertainment',
+                "Food & Beverage",'Rent & Bills','Travelling',
+                'Health & Beauty','Bank payment','Others','Medical','Education'
+                ,'Shopping','Income','Investment','Money Lending','Casual'];
+            // Add legend labels
+            var legendLabels = legend.selectAll("text")
+                .data(colorScale.domain())
+                .enter()
+                .append("text")
+                .attr("x", 750)
+                .attr("y", function(d, i) { return i * 20 + 10; })
+                .text(function(d,i) { return legend_name[i]; });    
+            legendCreated = true; 
+        }
+
+    //Return the location for each point of x
+    function posPointX(d){
+        return d.projected.x;
+    }
+    //Return the location for each point of y
+    // + and * will make the point lower
+    function posPointY(d){
+        return d.projected.y;
+    }
+	function init(){
+        createLegend();
+        // dataset refers to {x(Catagorical),z(Time_Period),data(Bank_Transaction),y(Value of Transaction)}
+        var dataset = [{"x":2,"y":3883,"z":7,"category":9,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2249,"z":7,"category":10,"data":"PAYMENT - THANK YOU"},{"x":5,"y":2581,"z":5,"category":5,"data":"PAYMENT - THANK YOU"},{"x":3,"y":4979,"z":5,"category":15,"data":"PAYMENT - THANK YOU"},{"x":2,"y":1130,"z":1,"category":7,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4899,"z":3,"category":10,"data":"PAYMENT - THANK YOU"},{"x":3,"y":3184,"z":2,"category":13,"data":"PAYMENT - THANK YOU"},{"x":3,"y":4572,"z":5,"category":13,"data":"PAYMENT - THANK YOU"},{"x":2,"y":4014,"z":9,"category":6,"data":"PAYMENT - THANK YOU"},{"x":3,"y":3723,"z":10,"category":4,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3364,"z":6,"category":3,"data":"PAYMENT - THANK YOU"},{"x":6,"y":3626,"z":10,"category":2,"data":"PAYMENT - THANK YOU"},{"x":2,"y":1176,"z":6,"category":11,"data":"PAYMENT - THANK YOU"},{"x":3,"y":2073,"z":9,"category":16,"data":"PAYMENT - THANK YOU"},{"x":2,"y":742,"z":2,"category":8,"data":"PAYMENT - THANK YOU"},{"x":7,"y":4760,"z":6,"category":5,"data":"PAYMENT - THANK YOU"},{"x":2,"y":1925,"z":6,"category":12,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2793,"z":2,"category":12,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2475,"z":5,"category":12,"data":"PAYMENT - THANK YOU"},{"x":1,"y":1706,"z":2,"category":14,"data":"PAYMENT - THANK YOU"},{"x":6,"y":3586,"z":9,"category":1,"data":"PAYMENT - THANK YOU"},{"x":1,"y":412,"z":6,"category":14,"data":"PAYMENT - THANK YOU"},{"x":7,"y":2175,"z":4,"category":15,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2064,"z":4,"category":16,"data":"PAYMENT - THANK YOU"},{"x":3,"y":2189,"z":9,"category":2,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2998,"z":4,"category":13,"data":"PAYMENT - THANK YOU"},{"x":3,"y":466,"z":5,"category":6,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4820,"z":3,"category":6,"data":"PAYMENT - THANK YOU"},{"x":2,"y":493,"z":1,"category":15,"data":"PAYMENT - THANK YOU"},{"x":6,"y":309,"z":1,"category":14,"data":"PAYMENT - THANK YOU"},{"x":6,"y":2332,"z":1,"category":3,"data":"PAYMENT - THANK YOU"},{"x":2,"y":4130,"z":2,"category":15,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4984,"z":5,"category":10,"data":"PAYMENT - THANK YOU"},{"x":7,"y":2840,"z":4,"category":14,"data":"PAYMENT - THANK YOU"},{"x":5,"y":1536,"z":5,"category":9,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2942,"z":1,"category":13,"data":"PAYMENT - THANK YOU"},{"x":2,"y":776,"z":9,"category":8,"data":"PAYMENT - THANK YOU"},{"x":7,"y":1804,"z":5,"category":9,"data":"PAYMENT - THANK YOU"},{"x":1,"y":506,"z":3,"category":9,"data":"PAYMENT - THANK YOU"},{"x":1,"y":450,"z":11,"category":16,"data":"PAYMENT - THANK YOU"},{"x":4,"y":3034,"z":4,"category":15,"data":"PAYMENT - THANK YOU"},{"x":6,"y":4611,"z":11,"category":13,"data":"PAYMENT - THANK YOU"},{"x":1,"y":3913,"z":10,"category":6,"data":"PAYMENT - THANK YOU"},{"x":4,"y":2349,"z":6,"category":2,"data":"PAYMENT - THANK YOU"},{"x":1,"y":860,"z":7,"category":1,"data":"PAYMENT - THANK YOU"},{"x":7,"y":4002,"z":8,"category":9,"data":"PAYMENT - THANK YOU"},{"x":3,"y":3797,"z":6,"category":11,"data":"PAYMENT - THANK YOU"},{"x":1,"y":4247,"z":6,"category":13,"data":"PAYMENT - THANK YOU"},{"x":1,"y":22,"z":5,"category":1,"data":"PAYMENT - THANK YOU"},{"x":4,"y":3528,"z":2,"category":15,"data":"PAYMENT - THANK YOU"},{"x":7,"y":1187,"z":11,"category":5,"data":"PAYMENT - THANK YOU"},{"x":2,"y":1784,"z":4,"category":13,"data":"PAYMENT - THANK YOU"},{"x":5,"y":2855,"z":7,"category":2,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3801,"z":8,"category":14,"data":"PAYMENT - THANK YOU"},{"x":1,"y":4054,"z":2,"category":8,"data":"PAYMENT - THANK YOU"},{"x":3,"y":19,"z":4,"category":7,"data":"PAYMENT - THANK YOU"},{"x":6,"y":1705,"z":5,"category":2,"data":"PAYMENT - THANK YOU"},{"x":7,"y":3548,"z":11,"category":1,"data":"PAYMENT - THANK YOU"},{"x":1,"y":4976,"z":1,"category":4,"data":"PAYMENT - THANK YOU"},{"x":1,"y":4254,"z":6,"category":4,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3196,"z":3,"category":11,"data":"PAYMENT - THANK YOU"},{"x":2,"y":4378,"z":8,"category":6,"data":"PAYMENT - THANK YOU"},{"x":5,"y":1349,"z":6,"category":9,"data":"PAYMENT - THANK YOU"},{"x":2,"y":2820,"z":5,"category":10,"data":"PAYMENT - THANK YOU"},{"x":5,"y":374,"z":7,"category":1,"data":"PAYMENT - THANK YOU"},{"x":4,"y":1058,"z":6,"category":9,"data":"PAYMENT - THANK YOU"},{"x":4,"y":3571,"z":1,"category":3,"data":"PAYMENT - THANK YOU"},{"x":7,"y":3571,"z":11,"category":9,"data":"PAYMENT - THANK YOU"},{"x":3,"y":1678,"z":5,"category":1,"data":"PAYMENT - THANK YOU"},{"x":3,"y":533,"z":3,"category":9,"data":"PAYMENT - THANK YOU"},{"x":1,"y":2438,"z":1,"category":16,"data":"PAYMENT - THANK YOU"},{"x":6,"y":4836,"z":11,"category":5,"data":"PAYMENT - THANK YOU"},{"x":1,"y":741,"z":11,"category":5,"data":"PAYMENT - THANK YOU"},{"x":2,"y":1300,"z":11,"category":4,"data":"PAYMENT - THANK YOU"},{"x":4,"y":2798,"z":4,"category":12,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4832,"z":2,"category":15,"data":"PAYMENT - THANK YOU"},{"x":5,"y":454,"z":1,"category":1,"data":"PAYMENT - THANK YOU"},{"x":4,"y":3724,"z":5,"category":8,"data":"PAYMENT - THANK YOU"},{"x":1,"y":3304,"z":4,"category":3,"data":"PAYMENT - THANK YOU"},{"x":3,"y":84,"z":8,"category":3,"data":"PAYMENT - THANK YOU"},{"x":3,"y":4482,"z":7,"category":10,"data":"PAYMENT - THANK YOU"},{"x":3,"y":1758,"z":4,"category":11,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4679,"z":3,"category":5,"data":"PAYMENT - THANK YOU"},{"x":2,"y":541,"z":5,"category":13,"data":"PAYMENT - THANK YOU"},{"x":4,"y":4004,"z":10,"category":15,"data":"PAYMENT - THANK YOU"},{"x":1,"y":1125,"z":10,"category":14,"data":"PAYMENT - THANK YOU"},{"x":2,"y":3340,"z":3,"category":2,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3446,"z":10,"category":4,"data":"PAYMENT - THANK YOU"},{"x":1,"y":2589,"z":10,"category":5,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3245,"z":10,"category":14,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3577,"z":9,"category":14,"data":"PAYMENT - THANK YOU"},{"x":6,"y":633,"z":1,"category":12,"data":"PAYMENT - THANK YOU"},{"x":5,"y":4550,"z":11,"category":12,"data":"PAYMENT - THANK YOU"},{"x":5,"y":3149,"z":3,"category":4,"data":"PAYMENT - THANK YOU"},{"x":6,"y":2500,"z":10,"category":8,"data":"PAYMENT - THANK YOU"},{"x":3,"y":2629,"z":7,"category":4,"data":"PAYMENT - THANK YOU"},{"x":6,"y":3394,"z":10,"category":4,"data":"PAYMENT - THANK YOU"},{"x":5,"y":1690,"z":1,"category":14,"data":"PAYMENT - THANK YOU"},{"x":4,"y":430,"z":1,"category":3,"data":"PAYMENT - THANK YOU"},{"x":3,"y":99,"z":9,"category":9,"data":"PAYMENT - THANK YOU"}];    
+        var cnt = 0;
+        xGrid = [], scatter = [], yLine = [],weekday2=[];
+        for(var x = 1; x <= 7; x++){    
+            for(var z = 1; z <= 11; z++){
+                xGrid.push([x, 1, z]);
+            }
+        }
+        var index=[]
+        for (var x = 1; x <= 7; x++) {
+            for (var z = 1; z <= 11; z++) {
+                for (var c = 1; c <= 16; c++) {
+                    index.push([x,z,c]);
+            }
+        }
+        }
+        let total_value = [];
+        for (let i = 1; i < 12; i++) {
+            for (let j = 1; j < 8; j++) {
+                for (let c = 1; c <= 16; c++) {
+                total_value.push({"x": j, "y": 0, "z": i,"c":c});
+                }
+            }
+        }
+        for (var i = 0; i < dataset.length; i++) {
+                var value1=dataset[i]["x"];
+                var value2=dataset[i]["z"];
+                var value3=dataset[i]["category"];
+                let indexNumber = -1;
+            for (let i = 0; i < index.length; i++) {
+            if (JSON.stringify(index[i]) === JSON.stringify([value1,value2,value3])) {
+                indexNumber = i;
+                break;
+            }
+            }
+            total_value[indexNumber]["y"]-=dataset[i]["y"];
+            }
+        // Set actual points values by condition,now is take log for the points value of y
+        for (var i = 0; i < total_value.length; i++) {
+            if (total_value[i]["y"]==0){
+                scatter.push({x: total_value[i]["x"], y: 0, z: total_value[i]["z"], id: 'point_' + cnt++,c:total_value[i]["c"]});
+            }
+            else{
+            scatter.push({x: total_value[i]["x"], y: Math.log10(total_value[i]["y"]*-1)*-1, z: total_value[i]["z"], id: 'point_' + cnt++,c:total_value[i]["c"]});
+        }}
+        //q = the largest value among different catagry
+        var q = total_value.reduce(function(prev, current) {
+        return (prev.y < current.y) ? prev : current;
+        });
+        /*var value3=q['y'];
+        d3.range(-1, value3*-1, (value3*-1)/10).forEach(function(d){ yLine.push([8, -d, 4]); });*/
+        // d3.range refers to how many number of the y-axis
+        //yLine.push([8, -d, 4]) refers to the location of y Line local(x,y,z)
+        d3.range(1, 10, 1).forEach(function(d){ yLine.push([4, -d+2, 4]); });
+
+        var weekday = ["Mon", "Tue", "Wed", "Thu", "Fri","Sat","Sun","Weekday"];
+        d3.range(0,11,1).forEach(function(d){period.push([1,1,d+1,d+1]);});
+        period.push([1,1,12,"Period"]);
+            for (let i = 0; i < weekday.length; i++) {
+                weekday2.push([i+0.5,0.5,0.5,weekday[i]]);
+            }
+ 
+            var data = [
+            grid3d(xGrid),
+            point3d(scatter),
+            yScale3d([yLine]),
+            zScale3d([weekday2]),
+            xScale3d([period])
+        ];
+
+        // 1000 refers to the lagging of process data
+        processData(data, 0);
+    }
+
+
+    // States with the mouse position when doing left click 
+    function dragStart(){
+        mx = d3.event.x;
+        my = d3.event.y;
+    }
+    // Calculate the difference between the mouse position when doing left click
+    function dragged(){;
+        mouseX = mouseX || 0;
+        mouseY = mouseY || 0;
+        //Mouse move to right, then beta will increase
+        //Mouse move to above, then alpha will increase
+        beta   = (d3.event.x - mx + mouseX) * Math.PI / 230 *-1;
+        //beta refers for the rotation along the y-axis, d3.event.x - mx + mouseX is the angle between the starting point (fixed) and the current point, Math.PI / 230 refers to the velocity of the rotation, mouseX refers to the last stopping location of the mouse
+        alpha  = (d3.event.y - my + mouseY) * Math.PI / 230  ;
+        //alpha refers for the rotation along the x-axis
+        var data = [
+            grid3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)(xGrid),
+            point3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)(scatter),
+            yScale3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)([yLine]),
+            xScale3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)([weekday2]),
+            zScale3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)([period]),
+        ];
+        processData(data, 0);
+
+    }
+    // return the cuurrent coordinate of mouseX and mouseY when stop dragging
+    function dragEnd(){
+        mouseX = d3.event.x - mx + mouseX;
+        mouseY = d3.event.y - my + mouseY;
+    }
+
+    d3.selectAll('button').on('click', init);
+
+    init();
+</script>
+</body>
