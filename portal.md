@@ -1,6 +1,7 @@
 ## Artwork
-* [interdimensional Portal](artwork/interdimensionalPortal.html)
-* [interdimensional Portal 2](artwork/interdimensionalPortal2.html)
+* [Cylinder Wrap](artwork/cylinderWrap.html)
+* [Interdimensional Portal](artwork/interdimensionalPortal.html)
+* [Interdimensional Portal 2](artwork/interdimensionalPortal2.html)
 
 ## Common Showcase
 * [Web Worker](showcase/webWorker.html)
